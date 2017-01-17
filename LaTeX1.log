@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.9.22)  17 JAN 2017 08:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.9.22)  17 JAN 2017 15:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -979,15 +979,29 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [7 <./fig12_Base-eps-converted-to.pdf> <./fig12_CPC-eps-converted-to.pdf> <./f
 ig12_CPP-eps-converted-to.pdf> <./fig12_CPV-eps-converted-to.pdf>]
-Overfull \hbox (5.93643pt too wide) in paragraph at lines 492--493
+Overfull \hbox (9.21254pt too wide) in paragraph at lines 456--456
+[] 
+ []
+
+
+Overfull \hbox (10.01532pt too wide) in paragraph at lines 481--481
+[] 
+ []
+
+
+Underfull \vbox (badness 8019) has occurred while \output is active []
+
+
+Overfull \hbox (5.93643pt too wide) in paragraph at lines 485--486
 []\T1/aer/m/n/9 The data sets used in this sec-tion in-clude Ya-hoo!, movieLen-
 
  []
 
 
 LaTeX Warning: Citation `Rendle2009Bayesian' on page \thepage  undefined on inp
-ut line 506.
+ut line 501.
 
+[8]
 Package epstopdf Info: Source file: <fig13_model_NDCG.eps>
 (epstopdf)                    date: 2017-01-14 22:20:23
 (epstopdf)                    size: 15660 bytes
@@ -996,14 +1010,15 @@ Package epstopdf Info: Source file: <fig13_model_NDCG.eps>
 (epstopdf)                    size: 8079 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig13_model_NDCG-eps-conve
 rted-to.pdf fig13_model_NDCG.eps>
-(epstopdf)             \includegraphics on input line 514.
+(epstopdf)             \includegraphics on input line 509.
 Package epstopdf Info: Output file is already uptodate.
-<fig13_model_NDCG-eps-converted-to.pdf, id=292, 1446.40375pt x 725.71124pt>
+
+<fig13_model_NDCG-eps-converted-to.pdf, id=295, 1446.40375pt x 725.71124pt>
 File: fig13_model_NDCG-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig13_model_NDCG-eps-converted-to.pdf>
 Package pdftex.def Info: fig13_model_NDCG-eps-converted-to.pdf used on input li
-ne 514.
+ne 509.
 (pdftex.def)             Requested size: 453.59692pt x 227.5815pt.
 Package epstopdf Info: Source file: <fig13_compare_NDCG.eps>
 (epstopdf)                    date: 2017-01-14 14:47:09
@@ -1013,18 +1028,16 @@ Package epstopdf Info: Source file: <fig13_compare_NDCG.eps>
 (epstopdf)                    size: 9685 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig13_compare_NDCG-eps-con
 verted-to.pdf fig13_compare_NDCG.eps>
-(epstopdf)             \includegraphics on input line 516.
+(epstopdf)             \includegraphics on input line 511.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig13_compare_NDCG-eps-converted-to.pdf, id=293, 1446.40375pt x 725.71124pt>
+<fig13_compare_NDCG-eps-converted-to.pdf, id=296, 1446.40375pt x 725.71124pt>
 File: fig13_compare_NDCG-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig13_compare_NDCG-eps-converted-to.pdf>
 Package pdftex.def Info: fig13_compare_NDCG-eps-converted-to.pdf used on input 
-line 516.
+line 511.
 (pdftex.def)             Requested size: 453.59692pt x 227.5815pt.
- [8] [9 <./fig13_model_NDCG-eps-converted-to.pdf> <./fig13_compare_NDCG-eps-con
-verted-to.pdf>]
 Package epstopdf Info: Source file: <fig14_tau.eps>
 (epstopdf)                    date: 2017-01-16 14:16:04
 (epstopdf)                    size: 8721 bytes
@@ -1033,14 +1046,14 @@ Package epstopdf Info: Source file: <fig14_tau.eps>
 (epstopdf)                    size: 6366 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig14_tau-eps-converted-to
 .pdf fig14_tau.eps>
-(epstopdf)             \includegraphics on input line 526.
+(epstopdf)             \includegraphics on input line 521.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig14_tau-eps-converted-to.pdf, id=311, 421.575pt x 317.185pt>
+<fig14_tau-eps-converted-to.pdf, id=297, 421.575pt x 317.185pt>
 File: fig14_tau-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig14_tau-eps-converted-to.pdf>
-Package pdftex.def Info: fig14_tau-eps-converted-to.pdf used on input line 526.
+Package pdftex.def Info: fig14_tau-eps-converted-to.pdf used on input line 521.
 
 (pdftex.def)             Requested size: 100.79846pt x 75.83556pt.
 Package epstopdf Info: Source file: <fig14_K.eps>
@@ -1051,18 +1064,20 @@ Package epstopdf Info: Source file: <fig14_K.eps>
 (epstopdf)                    size: 5551 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig14_K-eps-converted-to.p
 df fig14_K.eps>
-(epstopdf)             \includegraphics on input line 528.
+(epstopdf)             \includegraphics on input line 523.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig14_K-eps-converted-to.pdf, id=312, 421.575pt x 317.185pt>
+<fig14_K-eps-converted-to.pdf, id=298, 421.575pt x 317.185pt>
 File: fig14_K-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig14_K-eps-converted-to.pdf>
-Package pdftex.def Info: fig14_K-eps-converted-to.pdf used on input line 528.
+Package pdftex.def Info: fig14_K-eps-converted-to.pdf used on input line 523.
 (pdftex.def)             Requested size: 100.79846pt x 75.83556pt.
- [10 <./fig14_tau-eps-converted-to.pdf> <./fig14_K-eps-converted-to.pdf>] [11
+ [9] [10 <./fig13_model_NDCG-eps-converted-to.pdf> <./fig13_compare_NDCG-eps-co
+nverted-to.pdf>] [11
 
-] (./LaTeX1.aux)
+ <./fig14_tau-eps-converted-to.pdf> <./fig14_K-eps-converted-to.pdf>] (./LaTeX1
+.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1075,13 +1090,13 @@ LaTeX Warning: There were multiply-defined labels.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 4320 strings out of 493014
- 62666 string characters out of 6133351
- 141254 words of memory out of 5000000
- 7723 multiletter control sequences out of 15000+600000
+ 4322 strings out of 493014
+ 62693 string characters out of 6133351
+ 141973 words of memory out of 5000000
+ 7725 multiletter control sequences out of 15000+600000
  51075 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,27n,28p,1914b,2303s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,16n,28p,1904b,2303s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc
 }</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><
 /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pf
@@ -1099,7 +1114,7 @@ ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texliv
 e/2016/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2016/
 texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2016/texmf-d
 ist/fonts/type1/urw/times/utmb8a.pfb>
-Output written on LaTeX1.pdf (11 pages, 636152 bytes).
+Output written on LaTeX1.pdf (11 pages, 635663 bytes).
 PDF statistics:
  386 PDF objects out of 1000 (max. 8388607)
  249 compressed objects within 3 object streams

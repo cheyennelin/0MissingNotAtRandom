@@ -38,7 +38,7 @@
 %}
 \maketitle
 \begin{abstract}
-Are people in recommender systems less willing to speak out if they perceive they are in the minority? We testify the famous ``spiral of silence'' theory in actual recommender systems. We find that not only minority opinion holders incline to remain silent, but also the incline is enlarged if the opinion climate gets stronger. Furthermore, we discover that (1) For niche items, people are less likely to express negative opinions and more likely to give positive responses. The tendency is weakend for popular items, thus resulting in a spiral process where the average rating for each item increases given more ratings received, slightly decreases after a certain time point, and finally converges. (2) People assess the ``opinion climate'' in a ``quasi-statistical '' sense, which is highly affected by how they identify themselves to different communities and the opinion leaders. (3) A hardcore group of people, who are more active to reveal minority opinions, exists in every recommender system. In general, the personality of hardcore is related to attitude certainty.  (4) People are more willing to demonstrate dissents for popular items and items that they are interested on. People feel more obligated to praise a criticized item than the opposite, to criticize an appreciated item.  The phenomenon of silent minority harms the performance of conventional recommender systems. We propose novel models which assume that the probability a user willing to express opinion is dependent on the rating and how the rating divergent to the perceived opinion climate. Furthermore, we utilize our empirical discoveries to guide the building of recommender models. We model the formation of community, opinion leaders, hardcore personality and item popularity to enhance recommendation performance.  Experimental results demonstrate that our models  outperform state-of-the-art recommendation models.
+Are people in recommender systems less willing to speak out if they perceive they are in the minority? We testify the famous ``spiral of silence'' theory in real recommender systems. We find that not only minority opinion holders incline to remain silent, but also the incline is enlarged if the opinion climate gets stronger. Furthermore, we discover that (1) For niche items, people are less likely to express negative opinions and more likely to give positive responses. The tendency is weakened for popular items, thus resulting in a spiral process where the average rating for each item firstly increases given more ratings received, slightly decreases after a certain time point, and finally converges. (2) People assess the ``opinion climate'' in a ``quasi-statistical '' sense, which is highly affected by how they identify themselves to different communities and the opinion leaders. (3) A hardcore group of people, who are more active to reveal minority opinions, exists in every recommender system. Hardcore users are more prone to  rate in extreme values. (4) People are more willing to demonstrate dissents for popular items and items that they are interested on. People feel more obligated to praise a criticized item than the opposite, to criticize an appreciated item.  The phenomenon of silent minority harms the performance of conventional recommender systems. We propose novel models which assume that the probability a user willing to express opinion is dependent on the rating and how the rating divergent to the perceived opinion climate. Furthermore, we utilize our empirical discoveries to guide the building of recommender models. We model the formation of community, opinion leaders, hardcore personality and item popularity to enhance recommendation performance.  Experimental results demonstrate that our models  outperform state-of-the-art recommendation models.
 \end{abstract}
 
 % A category with the (minimum) three required fields
@@ -362,7 +362,7 @@ Similarly, the user bias, item bias and item factors are also generated from Gau
 \textit{The rating generation stage:} The rating $R_{i,j}=U_iV_j+Bu_i + Bv_j +\epsilon$, where $\epsilon$ is a zero-mean Gaussion error. Hence in this stage, generate the rating: 
 
 \begin{equation}\label{equ:rating}
-R_{i,j} \sim \mathcal{N}(U_iV_j+Bu_i+Bv_j, \sigma_r^2)
+R_{i,j} \sim \mathcal{N}(U_iV_j+BU_i+BV_j, \sigma_r^2)
 \end{equation}
 
 \textit{The response generation stage:} Generate the response value $X_{i,j}$ from Equ.\ref{equ:responsebase}
@@ -444,48 +444,41 @@ P(x_{i,j}|r_{i,j},E_{c,j},\gamma)=\frac{1}{1+\exp{(-\tau(r_{i,j}-E_{c,j}-VP_j))}
 
 \subsection{Inference}
 
-We apply EM algorithms to infer the model parameters. In model Base and COL, the update equations are
-\begin{eqnarray}
-U_i \leftarrow & \\\nonumber
-V_j \leftarrow & \\\nonumber
-\end{eqnarray}
+We apply EM algorithms to infer the model parameters. The update equations in the four models share a similar form, which are listed as follows. 
 
-In model CPC, the log-likelihood is  
-\begin{equation*}
+\begin{equation}\label{equ:update}
 \begin{split}
-\mathcal{L}_{CPC}=&\sum\limits_{i=1}^{M}\sum\limits_{c=1}^{C}\gamma_{i,c}(log(\alpha_c)+\sum\limits_{j=1}^{N}log(\omega_{i,j,c}))\\\nonumber
-&+log(D(\alpha|\theta))+log(\mathcal{N}(U_c|0, \sigma^2_c))\\\nonumber
-&+log(\mathcal{N}(U_{i,c}|U_c, \sigma^2_u))+log(\mathcal{N}(V_j|0,\sigma^2_v))\\\nonumber
-&+log(\mathcal{N}(Bu_i|0,\sigma^2_b))+log(\mathcal{N}(Bv_j|0,\sigma^2_b))\\\nonumber
-\omega_{i,j,c}=&
-\begin{cases}
-P(X_{i,j}=1|R_{i,j},E_{c,j})P(R_{i,j})& \text{$X_{i,j}=1$}\\\nonumber
-1-P(X_{i,j}=1|R_{i,j},E_{c,j})& \text{$X_{i,j}=0$}
-\end{cases}
+&p_{i,j,c}=U_{i,c}^{T}V_{j} + BU_{i} + BV_{j} \\
+&B_{i,j,c}=(R_{i,j}-p_{i,j,c})^{[X_{i,j}=1]}(-\tau \mathcal{LS}(-\tau(p_{i,j,c}-E_{c,j})))^{[X_{i,j}=0]} \\
+&U_{i,c}\leftarrow U_{i,c}+lr(\hat{\gamma}_{i,c}\sum\limits_{j=1}^{N}B_{i,j,c}V_j-(U_{i,c}-U_c)) \\
+&V_j\leftarrow V_j+lr(\sum\limits_{c=1}^{C}\sum\limits_{i=1}^{M}\hat{\gamma}_{i,c}B_{i,j,c}U_{i,c}-V_j) \\
 \end{split}
-\end{equation*}
+\end{equation}
 
-The update equations are
-\begin{eqnarray}
-U_i \leftarrow & \\\nonumber
-V_j \leftarrow &\\\nonumber
-\end{eqnarray}
+where the $lr(*)$ is a logistic function. For model Base and COL   the c subscript is ignored (i.e. $p_{i,j,c}$ to $p_{i,j}$), and set $\hat{\gamma}_{i,c}=1$. 
 
+For model CPC, the hidden community $c$ is inferred by
 
-In model CPC, the update equations are:
+\begin{equation}\label{equ:updateCPC}
+\begin{split}
+&\hat{\gamma}_{i,c}\leftarrow\frac{\alpha_c\prod_{j=1}^{N}\omega_{i,j,c}}{\sum_{c=1}^{C}\alpha_c\prod_{j=1}^{N}\omega_{i,j,c}} \\
+\end{split}
+\end{equation}
 
-\begin{eqnarray}
-BUP_{i,j,c}\leftarrow & \frac{\tau}{1+e^{(-\tau((r_{i,j}^{[x_{i,j}=1]}p_{i,j,c}^{[x_{i,j}=0]})-m_{j,c}-up_i))}}\\\nonumber
-up_i\leftarrow &up_i+lr(\sum\limits_{c=1}^{C}\hat{\gamma_{i,c}}\sum\limits_{j=1}^{N}B_{i,j,c}-up_i)\\\nonumber
-BVP_{i,j,c}\leftarrow &\frac{\tau}{1+e^{(-\tau((r_{i,j}^{[x_{i,j}=1]}p_{i,j,c}^{[x_{i,j}=0]})-m_{j,c}-vp_j))}}\\\nonumber
-\end{eqnarray}
+For  model CPV,  we ignore the c subscript, set $\hat{\gamma}_{i,c}=1$ and replace $E_{c,j}$ by $E_{c,j}=E_{j}+VP_{i,j}$, where $VP_{i,j}$ is updated by
 
-In model CPV, the update equations:
+\begin{equation}
+VP_{i,j}
+\end{equation}
 
-\begin{eqnarray}
-vp_j\leftarrow & vp_j+lr(\sum\limits_{c=1}^{C}\sum\limits_{i=1}^{M}\hat{\gamma_{i,c}}B_{i,j,c}-vp_j)\\\nonumber
-\end{eqnarray}
-
+For model CPP, the update equations are:
+\begin{equation}
+\begin{split}
+&B_{i,j,z}=(R_{i,j}-p_{i,j})^{[X_{i,j}=1]}(-\tau_{i,z}\mathcal{LS}(-\tau_{i,z}(p_{i,j}-E_{j})))^{[X_{i,j}=0]} \\
+&U_{i}\leftarrow U_{i}+lr(\sum\limits_{z=0}^{1}\hat{\pi}_{i,z}\sum\limits_{j=1}^{N}B_{i,j,z}V_j-U_{i}) \\
+&V_j\leftarrow V_j+lr(\sum\limits_{z=0}^{1}\sum\limits_{i=1}^{M}\hat{\pi}_{i,z}B_{i,j,z}U_{i}-V_j) \\
+\end{split}
+\end{equation}
 
 \section{Experiment}\label{sec:experiment}
 
@@ -494,13 +487,15 @@ The data sets used in this section include Yahoo!, movieLen-1M, and eachmovie me
 
 \subsection{Comparative Study}
 
-The major evaluation metric is $NDCG@L$, which is a standard measure for ranking systems, and has been used as the primary criteria in many MNAR researches~\cite{Hernandez-Lobato2014Probabilistic,Marlin2009Collaborative}  NDCG@L is short for the normalized discounted cumulative gain for top $L$ results. 
+The major evaluation metric is $NDCG@L$, which is a standard measure for ranking systems.   NDCG@L is short for the normalized discounted cumulative gain for top $L$ results. 
 \begin{equation}
-NDCG@L=\sum\limits_{i=1}^{M}\frac{\sum_{l=1}^{L}(2^{r_{n}(p(l,n))}-1)/log(1+l)}{M\sum_{l=1}^{L}(2^{r_{n}(t(l,n))}-1)/log(1+l)}
+NDCG@L=\sum\limits_{i=1}^{M}\frac{\sum_{l=1}^{L}(2^{r_{i}(p(l,i))}-1)/log(1+l)}{M\sum_{l=1}^{L}(2^{r_{i}(t(l,i))}-1)/log(1+l)}
 \end{equation}
 where $p(l,n)$ is the index of the test items sorted in descending order by predicted ratings, $t(l,n)$ is the index of the test items sorted in descending order by true ratings.
 
-In all our models, we set the aspect numbers $K=5$, community numbers $C=$, hyper-parameters  $\tau=1$ for model Base,COL,CPC and CPV.  $\xi=\theta=2$, All the variances are set to $\sigma_b=\sigma_a=\sigma_r=\sigma_u=\sigma_v=\sigma_\tau=1$. The learning rate is set 0.0001 in Yahoo!, Mtweet and movieLen-1M, 0.001 in Eachmovie. Convergence is obtained when the change in mean log-likelihood $\Delta\bar{L}<0.0001$ or stopped at a maximal $1500$ rounds.
+The data set is Yahoo!random. Evaluating $NDCG@L$ on a non-randomly missing data set, such as Yahoo!random, has been used as the primary criteria in many MNAR researches~\cite{Hernandez-Lobato2014Probabilistic,Marlin2009Collaborative}.
+
+In all our models, we set the aspect numbers $K=5$, community numbers $C=2$, hyper-parameters  $\tau=1$ for model Base,COL,CPC and CPV.  $\xi=\theta=2$, All the variances are set to $\sigma_b=\sigma_a=\sigma_r=\sigma_u=\sigma_v=\sigma_\tau=1$. The learning rate is set 0.0001 in Yahoo!, Mtweet and movieLen-1M, 0.001 in Eachmovie. Convergence is obtained when the change in mean log-likelihood $\Delta\bar{L}<0.0001$ or stopped at a maximal $1500$ rounds.
 
 
 We compare our models to a wide range of available models, including conventional memory-based and model-based collaborative filtering recommenders, MNAR models, and ranking based models. The comparative models include (1)uKNN: the user based K-Nearest Neighbor collaborative filtering recommender; (2) MF: the standard matrix factorization model~\cite{Koren2009Matrix}; (3)PMF: the probabilistic matrix factorization model~\cite{salakhutdinov2008probabilistic}; (4)BPR: a classic ranking based model~\cite{Rendle2009Bayesian} (4)CPT-v and Logit-vd: the first MNAR models~\cite{Marlin2009Collaborative} with $K=10$; (5) MF-MNAR~\cite{Hernandez-Lobato2014Probabilistic}: the probabilistic MNAR model which masks the rating matrix by a response matrix, we set $K=20$; (6)RAPMF~\cite{Yang2015Boosting}: an MNAR model which incorporates users' response models into the probabilistic matrix factorization (parameter $K=5$). The variances for the above models are tuned by cross validation.
@@ -532,7 +527,7 @@ We have two important parameters in our models $\tau$ and $K$. In order to see t
 \subsection{AUC Performance}
 Finally, we provide a supplementary experiment on the AUC performance. AUC is the area under recall-precision curve, which is a common measure to evaluate the performance of a binary classifier. We should note that AUC does not reflect how the RS captures MNAR ratings. Therfore, AUC is not the primary measurement for MNAR models. However, as shown in Tab.~\ref{tab:AUC}, our models achive best results in two data sets (Yahoo! and Mtweet) and second best results in the remaining two data sets (Movielens and Eachmovie). Thus our models are comparable to the state-of-the art models in term of AUC evaluation. Furthermore, we observe that CPC and COL are comparable when evaluated by AUC.   
 
-\begin{table*}[htbp]
+\begin{table*}[tbp]
 \centering
 \caption{Comparative AUC Performances}\label{tab:AUC}
 \centering
@@ -552,7 +547,7 @@ Eachmovie & $0.840$ & $\bf{0.905}$ & $0.900$ & $0.864$ & $0.776$ & $0.739$ & $0.
 In this contribution we verify the ``spiral of silence'' theory in real recommender systems. We use the empirical discovies to build recommender models that outperform state-of-the-art recommenders. In the future, we plan to investigate how the empirical discoveries can be combined to improve performances.
 
 
-\balancecolumns
+
 %\bibliographystyle{abbrv}
 %\bibliography{D:/MyRef/MyRef/Reference}
 
@@ -687,5 +682,5 @@ H.~Yang, G.~Ling, Y.~Su, M.~R. Lyu, and I.~King.
 
 \end{thebibliography}
 
-
+%\balancecolumns
 \end{document}
