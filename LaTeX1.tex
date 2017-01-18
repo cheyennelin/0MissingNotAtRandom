@@ -10,6 +10,9 @@
 \usepackage{colortbl}
 \definecolor{mygray}{gray}{.4}
 
+
+
+
 \makeatletter
 \def\@copyrightspace{\relax}
 \makeatother
@@ -38,7 +41,7 @@
 %}
 \maketitle
 \begin{abstract}
-Are people in recommender systems less willing to speak out if they perceive they are in the minority? We testify the famous ``spiral of silence'' theory in real recommender systems. We find that not only minority opinion holders incline to remain silent, but also the incline is enlarged if the opinion climate gets stronger. Furthermore, we discover that (1) For niche items, people are less likely to express negative opinions and more likely to give positive responses. The tendency is weakened for popular items, thus resulting in a spiral process where the average rating for each item firstly increases given more ratings received, slightly decreases after a certain time point, and finally converges. (2) People assess the ``opinion climate'' in a ``quasi-statistical '' sense, which is highly affected by how they identify themselves to different communities and the opinion leaders. (3) A hardcore group of people, who are more active to reveal minority opinions, exists in every recommender system. Hardcore users are more prone to  rate in extreme values. (4) People are more willing to demonstrate dissents for popular items and items that they are interested on. People feel more obligated to praise a criticized item than the opposite, to criticize an appreciated item.  The phenomenon of silent minority harms the performance of conventional recommender systems. We propose novel models which assume that the probability a user willing to express opinion is dependent on the rating and how the rating divergent to the perceived opinion climate. Furthermore, we utilize our empirical discoveries to guide the building of recommender models. We model the formation of community, opinion leaders, hardcore personality and item popularity to enhance recommendation performance.  Experimental results demonstrate that our models  outperform state-of-the-art recommendation models.
+Are people in recommender systems less willing to speak out if they perceive they are in the minority? We testify the famous ``spiral of silence'' theory in real recommender systems. We find that not only minority opinion holders incline to remain silent, but also the incline is enlarged if the opinion climate gets stronger. Furthermore, we discover that (1) For niche items, people are less likely to express negative opinions and more likely to give positive responses. The tendency is weakened for popular items, thus resulting in a spiral process where the average rating for each item firstly increases given more ratings received, slightly decreases after a certain time point, and finally converges. (2) People assess the ``opinion climate'' in a ``quasi-statistical '' sense, which is highly affected by how they identify themselves to different communities and the opinion leaders. (3) A hardcore group of people, who are more active to reveal minority opinions, exists in every recommender system. Hardcore users are more prone to  rate in extreme values. (4) People are more willing to demonstrate dissents for popular items and items that they are not interested on. People feel more obligated to praise a criticized item than the opposite, to criticize an appreciated item.  The phenomenon of silent minority harms the performance of conventional recommender systems. We propose novel models which assume that the probability a user willing to express opinion is dependent on the rating and how the rating divergent to the perceived opinion climate. Furthermore, we utilize our empirical discoveries to guide the building of recommender models. We model the formation of community, opinion leaders, hardcore personality and item popularity to enhance recommendation performance.  Experimental results demonstrate that our models  outperform state-of-the-art recommendation models.
 \end{abstract}
 
 % A category with the (minimum) three required fields
@@ -60,7 +63,7 @@ The theory has been acknowledged as ``one of the most influential recent theorie
 %Contribution: Empirical Study, discoveries
 Our first contribution in this work is to empirically verify the theory in terms of actural willingness to speak out in Recommender Systems (RS). We use several real data sets to analyze response patterns given how the users' opinion diverge from the perceived ``opinion climate''. Our study suggests that, especially in the beginning, negative feedback tend to self-censor,  which triggers an upward spiral of average rating for each item.
 
-We then further examine some key components in the theory  The key components include: (1) The perceptron of ``opinion climate''. The theory asserts that people use their ``quasi-statistical'' sense to assess current majority opinion. Our results reveal that, assessment of ``opinion climate'' might be related to the social group they identify themselves and the opinion leaders. (2) The existence of ``hardcore groups''. The theory presumes that some people are more active while the rest are more reluctant to respond. We empirically verify the existence of a consistent hardcore group. Hardcore users tend to choose more extreme rating values. (3) The strategies to remain silent. The theory presumes that users might choose different strategies to remain silent according to the nature of items. We observe that, item's popularity, personal interest and moral basis have significant impacts on the response patterns. Users are more prone to speak out for popular items, items matter to them, and to praise a criticized item than to criticize an appreciated item.
+We then further examine some key components in the theory  The key components include: (1) The perceptron of ``opinion climate''. The theory asserts that people use their ``quasi-statistical'' sense to assess current majority opinion. Our results reveal that, assessment of ``opinion climate'' might be related to the social group they identify themselves and the opinion leaders. (2) The existence of ``hardcore groups''. The theory presumes that some people are more active while the rest are more reluctant to respond. We empirically verify the existence of a consistent hardcore group. Hardcore users tend to choose more extreme rating values. (3) The strategies to remain silent. The theory presumes that users might choose different strategies to remain silent according to the nature of items. We observe that, item's popularity, personal interest and moral basis have significant impacts on the response patterns. Users are more prone to speak out for popular items, items that are not important to them, and to praise a criticized item than to criticize an appreciated item.
 
 
 %Challenge to RS
@@ -292,7 +295,7 @@ Next we study whether the responding is directly related to the popularity of it
 \label{fig:popularity}
 \end{figure}
 
-It is mentioned in the theory\cite{Neolle-Neumann1993spiral} that hardcore is related to personal interest or importance. To testify this assumption, we select the most rated tag and least rated tag (in number of ratings) for each user, and compute the hardcore score, where $n_i$ is the number of ratings a user $i$ gives to all items associated with the tag.  As shown in Fig.~\ref{fig:personalinterest}, in both data sets, users are more willing to express different opinions (with a higher hardcore score) for most interesting items.
+It is mentioned in the theory\cite{Neolle-Neumann1993spiral} that hardcore is related to personal interest or importance. To testify this assumption, we select the most rated tag and least rated tag (in number of ratings) for each user, and compute the hardcore score, where $n_i$ is the number of ratings a user $i$ gives to all items associated with the tag.  As shown in Fig.~\ref{fig:personalinterest}, in both data sets, users are more willing to express different opinions (with a higher hardcore score) for least interesting items.
 
 \begin{figure}[htbp]
 \centering
@@ -328,7 +331,7 @@ Is hardcore related to moral basis? We define two moral situations in Recommende
 \label{fig:moralbasis}
 \end{figure}
 
-We also conduct analysis to correlate hardcore personality to user experience and context of ratings. No evidence is found to imply significant correlation between the probability of a user being hardcore and the number of ratings he/she gives, in which day of a week and which time of a day the rating is given, and the previous items he/she rates. We obmit the analysis here due to the limit of space.
+We also conduct analysis to correlate hardcore personality to user experience and context of ratings. No evidence is found to imply significant correlation between the probability of a user being hardcore and the number of ratings he/she gives, in which day of a week and which time of a day the rating is given, and the previous items he/she rates. We omit the analysis here due to the limit of space.
 
 \section{Model}\label{sec:model}
 
@@ -338,12 +341,14 @@ We also conduct analysis to correlate hardcore personality to user experience an
 
 
 %basic MNAR model
-As with most matrix factorization models, we assume there are $K$ hidden aspects. The user preference is denoted as a vector $U_i\in R^K$ , and each item's coefficient to the aspects is denoted as a vector $V_j \in R^K$. We assign a random variable $Bu_i\in R$ to each user and $Bv_j\in R$ to each item to represent the user bias and item bias. The rating given by user $U_i$ to item $V_j$ is denoted by $R_{i,j}$. The ratings are semi-observed. Whether the rating $R_{i,j}$ is observed is denoted by a response variable $X_{i,j}$, where $X_{i,j}=1$ indicates the rating is observed and otherwise the rating is missing. We present four representative models below.
+As with most matrix factorization models, we assume there are $K$ hidden aspects. The user preference is denoted as a vector $U_i\in R^K$ , and each item's coefficient to the aspects is denoted as a vector $V_j \in R^K$. We assign a random variable $BU_i\in R$ to each user and $BV_j\in R$ to each item to represent the user bias and item bias. The rating given by user $U_i$ to item $V_j$ is denoted by $R_{i,j}$. The ratings are semi-observed. Whether the rating $R_{i,j}$ is observed is denoted by a binary response variable $X_{i,j}$, where $X_{i,j}=1$ indicates the rating is observed and otherwise the rating is missing. 
 
 \begin{figure*}[ht]
 \centering
 \subfigure[Base $\&$ COL]{\includegraphics[width=0.35\textwidth]{fig12_Base.eps}\label{fig:basemodel}}
+\vspace{-1em}
 \subfigure[CPC]{\includegraphics[width=0.4\textwidth]{fig12_CPC.eps}\label{fig:communitymodel}}
+\vspace{-1em}
 \subfigure[CPP]{\includegraphics[width=0.4\textwidth]{fig12_CPP.eps}\label{fig:hardcoremodel}}
 \subfigure[CPV]{\includegraphics[width=0.4\textwidth]{fig12_CPV.eps}\label{fig:itemmodel}}
 \caption{Graphic representation of models}\label{fig:model}
@@ -359,35 +364,35 @@ U_i \sim \mathcal{N}(0,\sigma_u^2)
 
 Similarly, the user bias, item bias and item factors are also generated from Gaussian distributions. $BU_i, BV_j \sim \mathcal{N}(0,\sigma_b^2)$,  $V_j \sim \mathcal{N}(0,\sigma_v^2)$.
 
-\textit{The rating generation stage:} The rating $R_{i,j}=U_iV_j+Bu_i + Bv_j +\epsilon$, where $\epsilon$ is a zero-mean Gaussion error. Hence in this stage, generate the rating: 
+\textit{The rating generation stage:} The rating $R_{i,j}$ approaches to $U_iV_j+Bu_i + Bv_j $, with a  zero-mean Gaussian error. Hence in this stage, generate the rating: 
 
 \begin{equation}\label{equ:rating}
 R_{i,j} \sim \mathcal{N}(U_iV_j+BU_i+BV_j, \sigma_r^2)
 \end{equation}
 
-\textit{The response generation stage:} Generate the response value $X_{i,j}$ from Equ.\ref{equ:responsebase}
+\textit{The response generation stage:} $X_{i,j}=1$ has a higher probability if the rating divergence to opinion climate $R_{i,j}-E_j$ is small. Generate the response value $X_{i,j}$ from Equ.\ref{equ:responsebase}
 
 \begin{equation}\label{equ:responsebase}
- P(X_{i,j}=1|R_{i,j},E_j)=\frac{1}{1+\exp{(-\tau(R_{i,j}-E_j))}}
+ P(X_{i,j}=1|R_{i,j},E_j,\tau)=\frac{1}{1+\exp{(-\tau(R_{i,j}-E_j))}}
 \end{equation}
- where $\tau$ is a strenth parameter, $E_j$ is the opinon climate for the particular item. In the baseline model, we set the opinion climate to be the average of all observed ratings.
+ where $\tau$ is a hardcore strength parameter, $E_j$ is the opinion climate for the particular item $j$. In the Base model, we set the opinion climate to be the average of all observed ratings.
 \begin{equation}\label{equ:ebase}
  E_j=\frac{\Sigma_jR_{i,j}X_{i,j}}{\Sigma_j X_{i,j}}
 \end{equation}
 
 
 %expert
-With a simple modification in the Base model, we obtain the \textbf{Conditional on Opinion Leader (COL)} model. The graphical representation of Base and COL is illustrated in Fig.~\ref{fig:basemodel}. Instead of computing a global majority rating by Equ.\ref{equ:ebase}, the average is taken over some expert users $e$.
+We next present four variant models, each individually models one important discovery in our empirical study. With a simple modification in the Base model, we obtain the \textbf{Conditional on Opinion Leader (COL)} model. The graphical representation of Base and COL is illustrated in Fig.~\ref{fig:basemodel}. Instead of computing a global majority rating by Equ.\ref{equ:ebase}, the average is taken over some expert users $e$.
 
 \begin{equation}\label{eexpert}
 E_j = \frac{\Sigma_e R_{e,j}X_{e,j}}{\Sigma_e X_{e,j}}
 \end{equation}
 
-where the experts are extracted by some expert identification algorithms. This allows the flexibility of utilizing side information sources, such as cascaded social networks, to recognize opinion leaders. 
+where the experts $e$ are extracted by some expert identification algorithms. This allows the flexibility of utilizing side information sources, such as cascaded social networks, to recognize opinion leaders. 
 
 \subsection{Model CPC}
 %community
-In the \textbf{Conditional Probability on Community (CPC)} model, we introduce a random variable $\gamma_i\in \{0,1\}$ to represent the community assignment of each user.
+Our empirical discovery suggests a user perceives a filtered opinion climate of people sharing similar preferences. In the \textbf{Conditional Probability on Community (CPC)} model, we introduce a random variable $\gamma_i\in \{0,1\}$ to represent the community assignment of each user.
 
 \begin{equation}
 \gamma_{i,c}=
@@ -397,15 +402,15 @@ In the \textbf{Conditional Probability on Community (CPC)} model, we introduce a
 \end{cases}
 \end{equation}
 
-where $\Sigma_c \gamma_{i,c}=1$.  Intuitively, users in the same community share similar preferences. We assume that the ``common'' preference in community $c$, denoted by $U_c$ is generated from a zero-mean Gaussian distribution $U_c \sim \mathcal{N}(0,\sigma_u^2)$. Thus as summarized in Fig.~\ref{fig:communitymodel}, the \textit{preprocessing stage} is as follows.
+where $\Sigma_c \gamma_{i,c}=1$.  Intuitively, users in the same community are alike. We assume that the ``common'' preference in community $c$, denoted by $U_c$. Thus as summarized in Fig.~\ref{fig:communitymodel}, the \textit{preprocessing stage} is as follows.
 
-Generate a global community distribution $\alpha\sim Dir(\theta), \Sigma_c \alpha_c=1, \forall \alpha_c>0$. For each user, first generate the community indicator $\gamma_i \sim Discrete(\alpha)$, then generate the user preference according to his/her community:
+Generate $C$ communities. For each community, $U_c$ is generated from a zero-mean Gaussian distribution $U_c \sim \mathcal{N}(0,\sigma_u^2)$. Generate a global community distribution $\alpha\sim Dir(\theta), \Sigma_c \alpha_c=1, \forall \alpha_c>0$. For each user, first generate the community indicator $\gamma_i \sim Discrete(\alpha)$, then generate the user preference according to his/her community:
 
 \begin{equation}\label{equ:preferencebase}
 U_i \sim \Pi_c \mathcal{N}(U_c,\sigma_u^2)^{\gamma_{i,c}}
 \end{equation}
 
-In the \textit{response generation stage}, we replace the opinion climate in Equ.\ref{equ:ebase} by a community specific opinion climate.
+In the \textit{response generation stage}, we replace the opinion climate in Equ.\ref{equ:ebase} by a community specific opinion climate. 
 
 \begin{equation}\label{equ:ecommunity}
  E_{c,j}=\frac{\Sigma_j\gamma_{i,c} R_{i,j}X_{i,j}}{\Sigma_j \gamma_{i,c} X_{i,j}}
@@ -413,38 +418,38 @@ In the \textit{response generation stage}, we replace the opinion climate in Equ
 
 \subsection{Model CPP}
 %user personality
-To model the split of users between hardcore and normal groups, the  \textbf{Conditional Probability on Persona (CPP)} model,  shown in Fig.~\ref{fig:hardcoremodel}, introduces a  persona variable,  denoted by $\pi \in \{0,1\}$. Intuitively, when a user is hardcore $\pi_{i,0}=1$ indicates that the user is more likely to speak out regardless of the opinion climate. Thus the strength parameter $\tau$ is reasonably smaller.  
+To model the split of users between hardcore and normal groups, the  \textbf{Conditional Probability on Persona (CPP)} model,  shown in Fig.~\ref{fig:hardcoremodel}, introduces a  persona variable,  denoted by $\pi \in \{0,1\}$. Intuitively, when a user is hardcore $\pi_{i,0}=1$, he/she is more likely to speak out regardless of the opinion climate. Thus the strength parameter $\tau$ is reasonably smaller.  Model Base,COL, CPC and CPV use a global $\tau$ for every user. In model CPP, $\tau$ is personalized for each persona.
 
 In the \textit{preprocessing stage}, draw a persona distribution from a Beta distribution $\beta \sim \mathcal{B}(\xi), 0<\beta<1$. For each persona, Draw a hardcore coefficient $\tau_z \sim \mathcal{N}(1,\sigma_\tau), z\in \{0,1\}$. For each user, draw a persona from a Bernouli distribution $\pi_i \sim Bern (\beta)$. 
 
-In the \textit{response generation stage}, generate the response value $X_{i,j}$ from Equ.\ref{equ:responseCPP}
+The response probability is dependent on the user's persona $\pi_i$, the hardcore strengths $\tau$ for each persona. In the \textit{response generation stage}, generate the response value $X_{i,j}$ from Equ.\ref{equ:responseCPP}
 
 \begin{equation}\label{equ:responseCPP}
- P(X_{i,j}=1|R_{i,j},E_j)=\Pi_z {\frac{1}{1+\exp{(-\tau_z(R_{i,j}-E_j))}}}^{\pi_{i,z}}
+ P(X_{i,j}=1|R_{i,j},E_j,\pi_i,\tau)=\Pi_z {\frac{1}{1+\exp{(-\tau_z(R_{i,j}-E_j))}}}^{\pi_{i,z}}
 \end{equation}
 
 \subsection{Model CPV}
 %item popularity
-Finally we give model \textbf{CPV} to associate the silence strategy to the nature of items. As shown in Fig.~\ref{fig:itemmodel}, we introduce auxilary variable $AU_i\in R^K$ to represent user activity, $AV_j\in R^K$ to represent item attention potential, $Vp_j$ to represent item popularity. Intuitively, if a user is more active, then he/she is able to witness more items. If an item has the potential to become a best seller, then it will receive more attentions. In the \textit{preprocessing stage}, we have  $AU_i, AV_j \sim \mathcal{N}(0,\sigma_a^2)$
+Finally we give model \textbf{CPV} to associate the silence strategy to the nature of items. Our empirical findings reveal that users are less hardcore when it comes to his/her favorite items and niche items. Intuitively, in the generation of response, there is a hidden variable that interacts with both users and items. As shown in Fig.~\ref{fig:itemmodel}, in the \textit{preprocessing stage}, we introduce auxiliary variable $AU_i\in R^K$ to represent user attention on $K$ categories, $AV_j\in R^K$ to represent item's ``absence''. We have  $AU_i, AV_j \sim \mathcal{N}(0,\sigma_a^2)$.
 
 
-In the \textit{rating generation stage}, in addition to Eq.~\ref{equ:rating}, we generate an item popularity score.
+In the \textit{rating generation stage}, we have $VP_{i,j}$ to represent item-user-specific popularity. in addition to Eq.~\ref{equ:rating}, let $VP_{i,j}$ to be sampled by:
 
 \begin{equation}\label{equ:popularity}
-VP_j\sim \mathcal{N}(AU_i AV_j,\sigma_p^2) 
+VP_{i,j}\sim \mathcal{N}(AU_i AV_j,\sigma_p^2) 
 \end{equation} 
 
-Consequently, we modified the response probability to
+Intuitively, if a user pays more attention to a category, and the item is absent from the best seller in the category, then it is less likely a different rating $r_{i,j}$ to be voiced.  Consequently, we modified the response probability to
 
 \begin{equation}\label{equ:responseCPV}
-P(x_{i,j}|r_{i,j},E_{c,j},\gamma)=\frac{1}{1+\exp{(-\tau(r_{i,j}-E_{c,j}-VP_j))}}
+P(x_{i,j}|r_{i,j},E_{j},\tau)=\frac{1}{1+\exp{(-\tau(r_{i,j}-E_{j}-VP_{i,j}))}}
 \end{equation}
 
 
 
 \subsection{Inference}
 
-We apply EM algorithms to infer the model parameters. The update equations in the four models share a similar form, which are listed as follows. 
+We apply EM algorithms to infer the model parameters. The update equations in the four models share a similar form. For computational convenience, we first obtain $B_{i,j,c}$ and $p_{i,j,c}$ for each user, item and community at an iteration. Then we update $U_i$ and $V_j$ as follows.
 
 \begin{equation}\label{equ:update}
 \begin{split}
@@ -455,9 +460,19 @@ We apply EM algorithms to infer the model parameters. The update equations in th
 \end{split}
 \end{equation}
 
-where $\mathcal{LS}(x)=\frac{1}{1+\exp(-x)}$ is a logistic function, $lr$ is the learning rate. For model Base and COL, the c subscript is ignored (i.e. $p_{i,j,c}$ to $p_{i,j}$), and set $\hat{\gamma}_{i,c}=1$. 
+where $\mathcal{LS}(x)=\frac{1}{1+\exp(-x)}$ is a logistic function, $lr$ is the learning rate. For model Base and COL, the c subscript is ignored (i.e. $p_{i,j,c}$ to $p_{i,j}$, $B_{i,j,c}$ to $B_{i,j}$), and set $\hat{\gamma}_{i,c}=1$. 
 
-For model CPC, we set $\omega_{i,j,c}=P(X_{i,j}=1|R_{i,j},E_{c,j})P(R_{i,j})$ fov??r all observations and $\omega_{i,j,c}=1-P(X_{i,j}=1|R_{i,j},E_{c,j})$ for all missing ratings. The hidden community $c$ is then inferred by
+For model CPC, in the E-step we need to compute $\omega_{i,j,c}$ for each user, item and community. 
+
+\begin{equation}
+\omega_{i,j,*}=
+\begin{cases}
+P(X_{i,j}=1|R_{i,j},E_{j})P(R_{i,j})& \text{$X_{i,j}=1$}\\\nonumber
+1-P(X_{i,j}=1|R_{i,j},E_{j})& \text{$X_{i,j}=0$}
+\end{cases}
+\end{equation}
+
+The hidden community $c$ is then inferred by
 
 \begin{equation}\label{equ:updateCPC}
 \begin{split}
@@ -476,7 +491,7 @@ For  model CPV,  we ignore the c subscript, set $\hat{\gamma}_{i,c}=1$ and repla
 \end{split}
 \end{equation}
 
-For model CPP, the update equations are:
+For model CPP, the update equations are given by:
 \begin{equation}
 \begin{split}
 &\hat{\pi}_{i,z}\leftarrow\frac{\beta_z\prod_{j=1}^{N}\omega_{i,j,z}}{\sum_{z=0}^{1}\beta_z\prod_{j=1}^{N}\omega_{i,j,z}} \\
@@ -488,7 +503,7 @@ For model CPP, the update equations are:
 
 \section{Experiment}\label{sec:experiment}
 
-The data sets used in this section include Yahoo!, movieLen-1M, and eachmovie mentioned above. In addition, we use the Mtweet benchmark with $106,337$ ratings by $3,972$ users on $2,043$ movies crawled from Social Network. In each data sets, we remove users whose number of ratings is less than 10, and items which have less than 10 ratings. For each user, we randomly select 5 ratings to construct the test data sets. All ratings are normalized to the range of $(0,1)$.
+The data sets used in this section include Yahoo!, movieLen-1M, and eachmovie mentioned above. In addition, we use the Mtweet benchmark with $106,337$ ratings by $3,972$ users on $2,043$ movies crawled from Social Network. In each data set, we remove users whose number of ratings is less than 10, and items which have less than 10 ratings. For each user, we randomly select 5 ratings to construct the test data sets. All ratings are converted to the range of $(1,5)$.
 
 
 \subsection{Comparative Study}
@@ -499,29 +514,30 @@ NDCG@L=\sum\limits_{i=1}^{M}\frac{\sum_{l=1}^{L}(2^{r_{i}(p(l,i))}-1)/log(1+l)}{
 \end{equation}
 where $p(l,n)$ is the index of the test items sorted in descending order by predicted ratings, $t(l,n)$ is the index of the test items sorted in descending order by true ratings.
 
-The data set is Yahoo!random. Evaluating $NDCG@L$ on a non-randomly missing data set, such as Yahoo!random, has been used as the primary criteria in many MNAR researches~\cite{Hernandez-Lobato2014Probabilistic,Marlin2009Collaborative}.
+The comparative $NDCG$ is conducted on Yahoo!random data set. Evaluating $NDCG@L$ on a non-randomly missing data set, such as Yahoo!random, has been used as the primary criteria in many MNAR researches~\cite{Hernandez-Lobato2014Probabilistic,Marlin2009Collaborative}.
 
-In all our models, we set the aspect numbers $K=5$, community numbers $C=2$, hyper-parameters  $\tau=1$ for model Base,COL,CPC and CPV.  $\xi=\theta=2$, All the variances are set to $\sigma_b=\sigma_a=\sigma_r=\sigma_u=\sigma_v=\sigma_\tau=1$. The learning rate is set to $lr=0.0001$ in Yahoo!, Mtweet and movieLen-1M, $lr=0.001$ in Eachmovie. Convergence is obtained when the change in mean log-likelihood $\Delta\bar{L}<0.0001$ or stopped at a maximal $1500$ rounds.
+In all our models, we set the aspect numbers $K=5$, community numbers $C=2$, hyper-parameters  $\tau=1$ for model Base,COL,CPC and CPV.  $\xi=\theta=2$, All the variances are set to $\sigma_b=\sigma_a=\sigma_r=\sigma_u=\sigma_v=\sigma_\tau=1$. In COL, the top 10 users with most ratings on each item are selected as opinion leaders for this item. The learning rate is set to $lr=0.0001$ in Yahoo!, Mtweet and movieLen-1M, $lr=0.001$ in Eachmovie. Convergence is obtained when the change in mean log-likelihood $\Delta\bar{L}<0.0001$ or stopped at maximal $1500$ rounds.  
 
 
-We compare our models to a wide range of available models, including conventional memory-based and model-based collaborative filtering recommenders, MNAR models, and ranking based models. The comparative models include (1)uKNN: the user based K-Nearest Neighbor collaborative filtering recommender; (2) MF: the standard matrix factorization model~\cite{Koren2009Matrix}; (3)PMF: the probabilistic matrix factorization model~\cite{salakhutdinov2008probabilistic}; (4)BPR: a classic ranking based model~\cite{Rendle2009Bayesian} (4)CPT-v and Logit-vd: the first MNAR models~\cite{Marlin2009Collaborative} with $K=10$; (5) MF-MNAR~\cite{Hernandez-Lobato2014Probabilistic}: the probabilistic MNAR model which masks the rating matrix by a response matrix, we set $K=20$; (6)RAPMF~\cite{Yang2015Boosting}: an MNAR model which incorporates users' response models into the probabilistic matrix factorization (parameter $K=5$). The variances for the above models are tuned by cross validation.
+We compare our models to a wide range of available models, including conventional memory-based and model-based collaborative filtering recommenders, MNAR models, and ranking based models. The comparative models include (1)uKNN: the user based K-Nearest Neighbor collaborative filtering recommender; (2) MF: the standard matrix factorization model~\cite{Koren2009Matrix}; (3)PMF: the probabilistic matrix factorization model~\cite{salakhutdinov2008probabilistic}; (4)BPR: a classic ranking based model~\cite{Rendle2009BPR} (4)CPT-v and Logit-vd: the first MNAR models~\cite{Marlin2009Collaborative} with $K=10$; (5) MF-MNAR~\cite{Hernandez-Lobato2014Probabilistic}: the probabilistic MNAR model which masks the rating matrix by a response matrix, we set $K=20$; (6)RAPMF~\cite{Yang2015Boosting}: an MNAR model which incorporates users' response models into the probabilistic matrix factorization (parameter $K=5$). The variances for the above models are tuned by cross validation.
 
-As shown in Fig.~\ref{fig:modelNDCG} and Fig.~\ref{fig:compNDCG}, we can see that (1) The four variants of our model outperform all non ranking-based models in terms of NDCG at different lengths, which demonstrates the dominant advantages of adjusting a opinion climate in the MNAR models.  (2) CPC performs consistently best in all NDCGs, which is corresponding to our discovery that the user perceiveness of opinion climate is affected by the community. (3) COL, CPP and CPV are better than the base model, which verifies our empirical findings. (4) BPR is the second best in all NDCGs, as BPR directly optimizes the ranking of items.   
+As shown in Fig.~\ref{fig:modelNDCG} and Fig.~\ref{fig:compNDCG}, we can see that (1) The four variants of our model outperform all non ranking-based models in terms of NDCG at different lengths, which demonstrates the dominant advantages of adjusting a opinion climate in the MNAR models.  (2) CPC performs consistently best in all NDCGs, even better than ranking based models, proving the compactly of our approach. (3) COL, CPP and CPV are better than the base model, which verifies our empirical findings. (4) COL, CPP and CPV perform slightly worse than CPC. A possible explanation is that the user's perceives of opinion climate is mostly affected by the community. (5) BPR is the second best in all NDCGs. Because BPR directly optimizes the ranking of items, it is reasonable that it outperforms other rating optimization models.  
 
 
 \begin{figure*}[!htbp]
 \centering
 \subfigure[Our models]{
-\includegraphics[width=0.9\textwidth]{fig13_model_NDCG.eps}\label{fig:modelNDCG}}
+\includegraphics[width=0.8\textwidth]{fig13_model_NDCG.eps}\label{fig:modelNDCG}}
+\vspace{-1em}
 \subfigure[CPC v.s. state-of-the-art models]{
-\includegraphics[width=0.9\textwidth]{fig13_compare_NDCG.eps}}\label{fig:compNDCG}
+\includegraphics[width=0.8\textwidth]{fig13_compare_NDCG.eps}\label{fig:compNDCG}}
 \caption{comparable experiment NDCG performance at top L items}
 \end{figure*}
 
 
 \subsection{Parameter Tunning}
-We have two important parameters in our models $\tau$ and $K$. In order to see the effects of these parameters, we set $\tau=0.5,1,1.5,2$ and $K=5,10,15,20$. The $NDCG@5$ result is shown in Fig.~\ref{fig:parameter}. We can conclude that (1) the performance is quite stable, no matter how we set the parameters. (2) The best result is achieved when $\tau=1.5,K=10$. It suggests that the hardcore effect is relative strong as $\tau>1$.
-\begin{figure}[htbp]
+We have two important parameters in our models $\tau$ and $K$. In order to see the effects of these parameters, we set $\tau=0.2,0.7,1.2,1.7,2.2$ and $K=5,10,15,20$. The $NDCG@5$ result of model CPC is shown in Fig.~\ref{fig:parameter}. We can conclude that (1) the performance is quite stable. No matter how we set the parameters,  $NDCG@5>0.74$, which is better than all non-ranking based recommender systems. This again demonstrate the superiority of our models.
+(2) The best result is achieved when $\tau=1.7,K=10$. It suggests that the hardcore effect is relative strong as $\tau>1$. \begin{figure}[htbp]
 \centering
 \subfigure[$\tau$]{
 \includegraphics[width=0.2\textwidth]{fig14_tau.eps}}
@@ -531,7 +547,7 @@ We have two important parameters in our models $\tau$ and $K$. In order to see t
 \end{figure}
 
 \subsection{AUC Performance}
-Finally, we provide a supplementary experiment on the AUC performance. AUC is the area under recall-precision curve, which is a common measure to evaluate the performance of a binary classifier. We should note that AUC does not reflect how the RS captures MNAR ratings. Therfore, AUC is not the primary measurement for MNAR models. However, as shown in Tab.~\ref{tab:AUC}, our models achive best results in two data sets (Yahoo! and Mtweet) and second best results in the remaining two data sets (Movielens and Eachmovie). Thus our models are comparable to the state-of-the art models in term of AUC evaluation. Furthermore, we observe that CPC and COL are comparable when evaluated by AUC.   
+Finally, we provide a supplementary experiment on the AUC performance. AUC is the area under recall-precision curve, which is a common measure to evaluate the performance of a binary classifier. We should note that AUC does not reflect how the RS captures MNAR ratings. Therfore, AUC is not the primary measurement for MNAR models. However, as shown in Tab.~\ref{tab:AUC}, our models achive best results in two data sets (Yahoo! and Mtweet) and second best results in the remaining two data sets (Movielens and Eachmovie). Thus our models are comparable to the state-of-the art models in term of AUC evaluation. Furthermore, we observe that CPC and COL are comparable when evaluated by AUC.   The underlying reason is that, COL may not be as good as CPC in predicting the top results. But in the long run, the opinion leaders have strong influence over user behaviors. 
 
 \begin{table*}[tbp]
 \centering
@@ -541,7 +557,7 @@ Finally, we provide a supplementary experiment on the AUC performance. AUC is th
 \hline
 & Base & CPC & COL & CPP & CPV & uKNN & PMF & CPT-v & logit-vd & MF-MNAR & RAPMF \\\hline
 \hline
-Yahoo & $0.803$ & $0.880$ & $\bf{0.882}$ & $0.857$ & $0.345$ & $0.776$ & $0.504$ & $0.825$ & $0.841$ & $0.863$ & $0.535$ \\\hline
+Yahoo & $0.803$ & $\bf{0.880}$ & $\bf{0.882}$ & $0.857$ & $0.345$ & $0.776$ & $0.504$ & $0.825$ & $0.841$ & $0.863$ & $0.535$ \\\hline
 Mtweet & $0.823$ & $\bf{0.864}$ & $\bf{0.863}$ & $0.832$ & $0.823$ & $0.766$ & $0.556$ & $0.828$ & $0.832$ & $0.856$ & $0.582$ \\\hline
 MovieLen & $0.874$ & $0.898$ & $\bf{0.902}$ & $0.871$ & $0.517$ & $0.818$ & $0.705$ & $0.878$ & $0.882$ & $\bf{0.929}$ & $0.662$ \\\hline
 Eachmovie & $0.840$ & $\bf{0.905}$ & $0.900$ & $0.864$ & $0.776$ & $0.739$ & $0.603$ & $0.792$ & $0.821$ & $\bf{0.912}$ & $0.562$ \\\hline
@@ -685,6 +701,11 @@ H.~Yang, G.~Ling, Y.~Su, M.~R. Lyu, and I.~King.
 \newblock Boosting response aware model-based collaborative filtering.
 \newblock {\em IEEE Transactions on Knowledge and Data Engineering},
   27(8):2064--2077, Aug 2015.
+  
+\bibitem{Rendle2009BPR}
+ Rendle, S.; Freudenthaler, C.; Gantner, Z. and Schmidt-Thieme, L. 
+ \newblock BPR: Bayesian Personalized Ranking from Implicit Feedback 
+ \newblock In {\em UAI}, 2009, 452-461
 
 \end{thebibliography}
 
