@@ -135,7 +135,7 @@ The Yahoo! data sets provide unique opportunities to testify the spiral of silen
 \caption{Statistics of the data sets}\label{tab:statistics}
 \begin{tabular}{|c|c|c|c|c|c|c|c|}
 \hline
-Dataset &\#users & \#Items & \#Ratings & Negative & Positive  & Time & \#Tags\\\hline\hline
+Dataset &\#users & \#Items & \#Ratings & Positive  & Negative & Time & \#Tags\\\hline\hline
 Movielens & 6,040 & 3706 & 1,000,209 & $57.52\%$ &$42.48\%$ & 34 months&18 \\\hline
 Eachmovie & 61,131 & 1,622 & 2,559,107 & $54.72\%$ & $45.28\%$ &18 months &10 \\\hline
 Yahoo!user & 15,400 & 1000 & 311,704 & $40.13\%$ & $59.87\%$ & N/A & N/A\\\hline
@@ -400,17 +400,17 @@ where the experts $e$ are extracted by some expert identification algorithms. Th
 
 \subsection{Model CPC}
 %community
-Our empirical discovery suggests a user perceives a filtered opinion climate of people sharing similar preferences. In the \textbf{Conditional Probability on Community (CPC)} model, we introduce a random variable $\gamma_i\in \{0,1\}$ to represent the community assignment of each user.
+Our empirical discovery suggests a user perceives a filtered opinion climate of people sharing similar preferences. In the \textbf{Conditional Probability on Community (CPC)} model, we introduce a random $C-$dimensional vector $\gamma_i$ to represent the community assignment of each user,  $\gamma_{i,c}\in \{0,1\}, \Sigma_c \gamma_{i,c}=1$.  
 
-\begin{equation}
-\gamma_{i,c}=
-\begin{cases}
-1& \text{if user $i$ is in community $c$}\\
-0& \text{else}
-\end{cases}
-\end{equation}
+%\begin{equation}
+%\gamma_{i,c}=
+%\begin{cases}
+%1& \text{if user $i$ is in community $c$}\\
+%0& \text{else}
+%\end{cases}
+%\end{equation}
 
-where $\Sigma_c \gamma_{i,c}=1$.  Intuitively, users in the same community are alike. We assume that the ``common'' preference in community $c$, denoted by $U_c$. Thus as summarized in Fig.~\ref{fig:communitymodel}, the \textit{preprocessing stage} is as follows.
+Intuitively, users in the same community are alike. We assume that the ``common'' preference in community $c$, denoted by $U_c$. Thus as summarized in Fig.~\ref{fig:communitymodel}, the \textit{preprocessing stage} is as follows.
 
 Generate $C$ communities. For each community, $U_c$ is generated from a zero-mean Gaussian distribution $U_c \sim \mathcal{N}(0,\sigma_u^2)$. Generate a global community distribution $\alpha\sim Dir(\theta), \Sigma_c \alpha_c=1, \forall \alpha_c>0$. For each user, first generate the community indicator $\gamma_i \sim Discrete(\alpha)$, then generate the user preference according to his/her community:
 
@@ -457,7 +457,7 @@ P(x_{i,j}|r_{i,j},E_{j},\tau)=\frac{1}{1+\exp{(-\tau(r_{i,j}-E_{j}-VP_{i,j}))}}
 
 \subsection{Inference}
 
-We apply EM algorithms to infer the model parameters. The update equations in the four models share a similar form. For computational convenience, we first obtain $B_{i,j,c}$ and $p_{i,j,c}$ for each user, item and community at an iteration. Then we update $U_i$ and $V_j$ as follows.
+The update equations in the four models share a similar form. For computational convenience, we first obtain $B_{i,j,c}$ and $p_{i,j,c}$ for each user, item and community at an iteration. Then we update $U_i$ and $V_j$ as follows.
 
 \begin{shrinkeq}{-2ex}
 \begin{equation}\label{equ:update}
@@ -472,7 +472,7 @@ We apply EM algorithms to infer the model parameters. The update equations in th
 
 where $\mathcal{LS}(x)=\frac{1}{1+\exp(-x)}$ is a logistic function, $lr$ is the learning rate. For model Base and COL, the c subscript is ignored (i.e. $p_{i,j,c}$ to $p_{i,j}$, $B_{i,j,c}$ to $B_{i,j}$), and set $\hat{\gamma}_{i,c}=1$. 
 
-For model CPC, in the E-step we need to compute $\omega_{i,j,c}$ for each user, item and community. 
+For model CPC and CPP, we apply EM algorithms to infer the model parameters. . in the E-step we need to compute $\omega_{i,j,*}$ for each user, item and community $c$ ($*=z$ for persona in CPP). 
 
 \begin{equation}
 \omega_{i,j,*}=
@@ -490,6 +490,16 @@ The hidden community $c$ is then inferred by
 \end{split}
 \end{equation}
 
+For model CPP, the update equations are given by:
+\begin{equation}
+\begin{split}
+&\hat{\pi}_{i,z}\leftarrow\frac{\beta_z\prod_{j=1}^{N}\omega_{i,j,z}}{\sum_{z=0}^{1}\beta_z\prod_{j=1}^{N}\omega_{i,j,z}} \\
+&B_{i,j,z}=(R_{i,j}-p_{i,j})^{[X_{i,j}=1]}(-\tau_{i,z}\mathcal{LS}(-\tau_{i,z}(p_{i,j}-E_{j})))^{[X_{i,j}=0]} \\
+&U_{i}\leftarrow U_{i}+lr(\sum\limits_{z=0}^{1}\hat{\pi}_{i,z}\sum\limits_{j=1}^{N}B_{i,j,z}V_j-U_{i}) \\
+&V_j\leftarrow V_j+lr(\sum\limits_{z=0}^{1}\sum\limits_{i=1}^{M}\hat{\pi}_{i,z}B_{i,j,z}U_{i}-V_j) \\
+\end{split}
+\end{equation}
+
 For  model CPV,  we ignore the c subscript, set $\hat{\gamma}_{i,c}=1$ and replace $E_{c,j}$ by $E_{c,j}=E_{j}+VP_{i,j}$, where $VP_{i,j}$ is updated by
 
 \begin{equation}
@@ -498,16 +508,6 @@ For  model CPV,  we ignore the c subscript, set $\hat{\gamma}_{i,c}=1$ and repla
 &AU_{i}\leftarrow AU_{i}+lr(\sum\limits_{j=1}^{N}D_{i,j}AV_j-AU_{i}) \\
 &AV_{j}\leftarrow AV_{j}+lr(\sum\limits_{i=1}^{M}D_{i,j}AU_{i}-AV_j) \\
 &VP_{i,j} \leftarrow AU_{i}^{T}AV_{j} \\
-\end{split}
-\end{equation}
-
-For model CPP, the update equations are given by:
-\begin{equation}
-\begin{split}
-&\hat{\pi}_{i,z}\leftarrow\frac{\beta_z\prod_{j=1}^{N}\omega_{i,j,z}}{\sum_{z=0}^{1}\beta_z\prod_{j=1}^{N}\omega_{i,j,z}} \\
-&B_{i,j,z}=(R_{i,j}-p_{i,j})^{[X_{i,j}=1]}(-\tau_{i,z}\mathcal{LS}(-\tau_{i,z}(p_{i,j}-E_{j})))^{[X_{i,j}=0]} \\
-&U_{i}\leftarrow U_{i}+lr(\sum\limits_{z=0}^{1}\hat{\pi}_{i,z}\sum\limits_{j=1}^{N}B_{i,j,z}V_j-U_{i}) \\
-&V_j\leftarrow V_j+lr(\sum\limits_{z=0}^{1}\sum\limits_{i=1}^{M}\hat{\pi}_{i,z}B_{i,j,z}U_{i}-V_j) \\
 \end{split}
 \end{equation}
 
@@ -559,6 +559,20 @@ We have three important parameters in the CPC models $\tau$, $K$ and $C$. In ord
 \includegraphics[width=0.3\textwidth]{fig14_C.eps}}
 \caption{NDCG@5 performance of CPC over different values of parameters}\label{fig:parameter}
 \end{figure*}
+
+\subsection{Perceived Opinion Climate}
+
+In all models, the perceived opinion climate is based on existing ratings. To give a quantitive sense of the necessity to build opinion climate upon observations, we modify Equ.~\ref{equ:ecommunity} as $E_{c,j}=U_cV_j$. In this way, the opinion climate is based on mean user preference within the community.  As shown in Fig.~\ref{fig:umean}, such a modification leads to worse $NDCG@L$ performance at every length $L$ of the recommendation list. It shows that, users need to compare their own opinions to the opinion climate they observed, instead of to the opinion climate they inferred.
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=0.45\textwidth]{fig15_umean.eps}\label{fig:umean}
+\caption{Performance of CPC on perceived opinion climate and inferred opinion climate}
+\label{default}
+\end{center}
+\end{figure}
+
+
 
 \subsection{AUC Performance}
 Finally, we provide a supplementary experiment on the AUC performance. AUC is the area under recall-precision curve, which is a common measure to evaluate the performance of a binary classifier. We should note that AUC does not reflect how the RS captures MNAR ratings. Therfore, AUC is not the primary measurement for MNAR models. However, as shown in Tab.~\ref{tab:AUC}, our models achive best results in two data sets (Yahoo! and Mtweet) and second best results in the remaining two data sets (Movielens and Eachmovie). Thus our models are comparable to the state-of-the art models in term of AUC evaluation. Furthermore, we observe that CPC and COL are comparable when evaluated by AUC.   The underlying reason is that, COL may not be as good as CPC in predicting the top results. But in the long run, the opinion leaders have strong influence over user behaviors. 

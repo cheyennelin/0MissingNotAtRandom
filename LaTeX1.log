@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.9.22)  18 JAN 2017 15:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.9.22)  18 JAN 2017 16:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1013,7 +1013,7 @@ nverted-to.pdf fig2_eachmovie_hist.eps>
 (epstopdf)             \includegraphics on input line 153.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig2_eachmovie_hist-eps-converted-to.pdf, id=165, 421.575pt x 316.18124pt>
+<fig2_eachmovie_hist-eps-converted-to.pdf, id=169, 421.575pt x 316.18124pt>
 File: fig2_eachmovie_hist-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig2_eachmovie_hist-eps-converted-to.pdf>
@@ -1032,7 +1032,7 @@ s-converted-to.pdf fig2_eachmovie_npopular.eps>
 (epstopdf)             \includegraphics on input line 155.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig2_eachmovie_npopular-eps-converted-to.pdf, id=166, 421.575pt x 316.18124pt>
+<fig2_eachmovie_npopular-eps-converted-to.pdf, id=170, 421.575pt x 316.18124pt>
 File: fig2_eachmovie_npopular-eps-converted-to.pdf Graphic file (type pdf)
 <use fig2_eachmovie_npopular-eps-converted-to.pdf>
 Package pdftex.def Info: fig2_eachmovie_npopular-eps-converted-to.pdf used on i
@@ -1049,7 +1049,7 @@ nverted-to.pdf fig2_movielens_hist.eps>
 (epstopdf)             \includegraphics on input line 157.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig2_movielens_hist-eps-converted-to.pdf, id=167, 421.575pt x 316.18124pt>
+<fig2_movielens_hist-eps-converted-to.pdf, id=171, 421.575pt x 316.18124pt>
 File: fig2_movielens_hist-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig2_movielens_hist-eps-converted-to.pdf>
@@ -1068,7 +1068,7 @@ eps-converted-to.pdf fig2_movielens1M_npopular.eps>
 (epstopdf)             \includegraphics on input line 159.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig2_movielens1M_npopular-eps-converted-to.pdf, id=168, 421.575pt x 316.18124p
+<fig2_movielens1M_npopular-eps-converted-to.pdf, id=172, 421.575pt x 316.18124p
 t>
 File: fig2_movielens1M_npopular-eps-converted-to.pdf Graphic file (type pdf)
  <use fig2_movielens1M_npopular-eps-converted-to.pdf>
@@ -1087,7 +1087,7 @@ s-converted-to.pdf fig3_eachmovie_npopular.eps>
 (epstopdf)             \includegraphics on input line 171.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig3_eachmovie_npopular-eps-converted-to.pdf, id=169, 421.575pt x 316.18124pt>
+<fig3_eachmovie_npopular-eps-converted-to.pdf, id=173, 421.575pt x 316.18124pt>
 File: fig3_eachmovie_npopular-eps-converted-to.pdf Graphic file (type pdf)
 <use fig3_eachmovie_npopular-eps-converted-to.pdf>
 Package pdftex.def Info: fig3_eachmovie_npopular-eps-converted-to.pdf used on i
@@ -1104,7 +1104,7 @@ rted-to.pdf fig3_movielens1M.eps>
 (epstopdf)             \includegraphics on input line 174.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig3_movielens1M-eps-converted-to.pdf, id=170, 421.575pt x 316.18124pt>
+<fig3_movielens1M-eps-converted-to.pdf, id=174, 421.575pt x 316.18124pt>
 File: fig3_movielens1M-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig3_movielens1M-eps-converted-to.pdf>
@@ -1122,7 +1122,7 @@ to.pdf fig4_random.eps>
 (epstopdf)             \includegraphics on input line 187.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig4_random-eps-converted-to.pdf, id=173, 421.575pt x 316.18124pt>
+<fig4_random-eps-converted-to.pdf, id=177, 421.575pt x 316.18124pt>
 File: fig4_random-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig4_random-eps-converted-to.pdf>
@@ -1140,7 +1140,7 @@ Package epstopdf Info: Source file: <fig4_user.eps>
 (epstopdf)             \includegraphics on input line 190.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig4_user-eps-converted-to.pdf, id=174, 421.575pt x 316.18124pt>
+<fig4_user-eps-converted-to.pdf, id=178, 421.575pt x 316.18124pt>
 File: fig4_user-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig4_user-eps-converted-to.pdf>
@@ -1161,7 +1161,7 @@ Package epstopdf Info: Source file: <fig5_random.eps>
 to.pdf fig5_random.eps>
 (epstopdf)             \includegraphics on input line 203.
 Package epstopdf Info: Output file is already uptodate.
- <fig5_random-eps-converted-to.pdf, id=216, 421.575pt x 316.18124pt>
+ <fig5_random-eps-converted-to.pdf, id=220, 421.575pt x 316.18124pt>
 File: fig5_random-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig5_random-eps-converted-to.pdf>
@@ -1179,7 +1179,7 @@ Package epstopdf Info: Source file: <fig5_user.eps>
 (epstopdf)             \includegraphics on input line 205.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig5_user-eps-converted-to.pdf, id=217, 421.575pt x 316.18124pt>
+<fig5_user-eps-converted-to.pdf, id=221, 421.575pt x 316.18124pt>
 File: fig5_user-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig5_user-eps-converted-to.pdf>
@@ -1197,7 +1197,7 @@ to.pdf fig6_random.eps>
 (epstopdf)             \includegraphics on input line 216.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig6_random-eps-converted-to.pdf, id=218, 421.575pt x 316.18124pt>
+<fig6_random-eps-converted-to.pdf, id=222, 421.575pt x 316.18124pt>
 File: fig6_random-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig6_random-eps-converted-to.pdf>
@@ -1215,7 +1215,7 @@ Package epstopdf Info: Source file: <fig6_user.eps>
 (epstopdf)             \includegraphics on input line 219.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig6_user-eps-converted-to.pdf, id=219, 421.575pt x 316.18124pt>
+<fig6_user-eps-converted-to.pdf, id=223, 421.575pt x 316.18124pt>
 File: fig6_user-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig6_user-eps-converted-to.pdf>
@@ -1236,7 +1236,7 @@ ed-to.pdf fig7_eachmovie.eps>
 (epstopdf)             \includegraphics on input line 265.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig7_eachmovie-eps-converted-to.pdf, id=265, 421.575pt x 316.18124pt>
+<fig7_eachmovie-eps-converted-to.pdf, id=269, 421.575pt x 316.18124pt>
 File: fig7_eachmovie-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig7_eachmovie-eps-converted-to.pdf>
@@ -1254,7 +1254,7 @@ rted-to.pdf fig7_movielens1M.eps>
 (epstopdf)             \includegraphics on input line 268.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig7_movielens1M-eps-converted-to.pdf, id=266, 421.575pt x 316.18124pt>
+<fig7_movielens1M-eps-converted-to.pdf, id=270, 421.575pt x 316.18124pt>
 File: fig7_movielens1M-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig7_movielens1M-eps-converted-to.pdf>
@@ -1272,7 +1272,7 @@ to.pdf fig7_random.eps>
 (epstopdf)             \includegraphics on input line 271.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig7_random-eps-converted-to.pdf, id=267, 421.575pt x 316.18124pt>
+<fig7_random-eps-converted-to.pdf, id=271, 421.575pt x 316.18124pt>
 File: fig7_random-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig7_random-eps-converted-to.pdf>
@@ -1290,7 +1290,7 @@ Package epstopdf Info: Source file: <fig7_user.eps>
 (epstopdf)             \includegraphics on input line 274.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig7_user-eps-converted-to.pdf, id=268, 421.575pt x 316.18124pt>
+<fig7_user-eps-converted-to.pdf, id=272, 421.575pt x 316.18124pt>
 File: fig7_user-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig7_user-eps-converted-to.pdf>
@@ -1311,7 +1311,7 @@ f>
 (epstopdf)             \includegraphics on input line 285.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig8_eachmovie_popular-eps-converted-to.pdf, id=271, 421.575pt x 316.18124pt>
+<fig8_eachmovie_popular-eps-converted-to.pdf, id=275, 421.575pt x 316.18124pt>
 File: fig8_eachmovie_popular-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig8_eachmovie_popular-eps-converted-to.pdf>
@@ -1329,7 +1329,7 @@ to.pdf fig9_random.eps>
 (epstopdf)             \includegraphics on input line 298.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig9_random-eps-converted-to.pdf, id=273, 421.575pt x 316.18124pt>
+<fig9_random-eps-converted-to.pdf, id=277, 421.575pt x 316.18124pt>
 File: fig9_random-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig9_random-eps-converted-to.pdf>
@@ -1347,7 +1347,7 @@ Package epstopdf Info: Source file: <fig9_user.eps>
 (epstopdf)             \includegraphics on input line 301.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig9_user-eps-converted-to.pdf, id=274, 421.575pt x 316.18124pt>
+<fig9_user-eps-converted-to.pdf, id=278, 421.575pt x 316.18124pt>
 File: fig9_user-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig9_user-eps-converted-to.pdf>
@@ -1365,7 +1365,7 @@ erted-to.pdf fig10_movielens1M.eps>
 (epstopdf)             \includegraphics on input line 313.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig10_movielens1M-eps-converted-to.pdf, id=277, 421.575pt x 316.18124pt>
+<fig10_movielens1M-eps-converted-to.pdf, id=281, 421.575pt x 316.18124pt>
 File: fig10_movielens1M-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig10_movielens1M-eps-converted-to.pdf>
@@ -1383,7 +1383,7 @@ ted-to.pdf fig10_eachmovie.eps>
 (epstopdf)             \includegraphics on input line 316.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig10_eachmovie-eps-converted-to.pdf, id=278, 421.575pt x 316.18124pt>
+<fig10_eachmovie-eps-converted-to.pdf, id=282, 421.575pt x 316.18124pt>
 File: fig10_eachmovie-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig10_eachmovie-eps-converted-to.pdf>
@@ -1395,17 +1395,17 @@ e 316.
 > <./fig8_eachmovie_popular-eps-converted-to.pdf> <./fig9_random-eps-converted-
 to.pdf> <./fig9_user-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <fig11_movielens1M.eps>
-(epstopdf)                    date: 2017-01-18 13:42:27
-(epstopdf)                    size: 59481 bytes
+(epstopdf)                    date: 2017-01-18 15:08:21
+(epstopdf)                    size: 73548 bytes
 (epstopdf)             Output file: <fig11_movielens1M-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-01-18 14:00:41
-(epstopdf)                    size: 8706 bytes
+(epstopdf)                    date: 2017-01-18 16:04:37
+(epstopdf)                    size: 9930 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig11_movielens1M-eps-conv
 erted-to.pdf fig11_movielens1M.eps>
 (epstopdf)             \includegraphics on input line 328.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig11_movielens1M-eps-converted-to.pdf, id=340, 421.575pt x 316.18124pt>
+<fig11_movielens1M-eps-converted-to.pdf, id=344, 421.575pt x 316.18124pt>
 File: fig11_movielens1M-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig11_movielens1M-eps-converted-to.pdf>
@@ -1413,17 +1413,17 @@ Package pdftex.def Info: fig11_movielens1M-eps-converted-to.pdf used on input l
 ine 328.
 (pdftex.def)             Requested size: 100.65746pt x 75.48943pt.
 Package epstopdf Info: Source file: <fig11_eachmovie.eps>
-(epstopdf)                    date: 2017-01-18 13:42:27
-(epstopdf)                    size: 241280 bytes
+(epstopdf)                    date: 2017-01-18 15:08:21
+(epstopdf)                    size: 338961 bytes
 (epstopdf)             Output file: <fig11_eachmovie-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-01-18 14:00:42
-(epstopdf)                    size: 10980 bytes
+(epstopdf)                    date: 2017-01-18 16:04:38
+(epstopdf)                    size: 12849 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig11_eachmovie-eps-conver
 ted-to.pdf fig11_eachmovie.eps>
 (epstopdf)             \includegraphics on input line 331.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig11_eachmovie-eps-converted-to.pdf, id=341, 421.575pt x 316.18124pt>
+<fig11_eachmovie-eps-converted-to.pdf, id=345, 421.575pt x 316.18124pt>
 File: fig11_eachmovie-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig11_eachmovie-eps-converted-to.pdf>
@@ -1431,17 +1431,17 @@ Package pdftex.def Info: fig11_eachmovie-eps-converted-to.pdf used on input lin
 e 331.
 (pdftex.def)             Requested size: 100.65746pt x 75.48943pt.
 Package epstopdf Info: Source file: <fig11_random.eps>
-(epstopdf)                    date: 2017-01-18 13:42:27
-(epstopdf)                    size: 14155 bytes
+(epstopdf)                    date: 2017-01-18 15:08:21
+(epstopdf)                    size: 14182 bytes
 (epstopdf)             Output file: <fig11_random-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-01-18 14:00:42
-(epstopdf)                    size: 6209 bytes
+(epstopdf)                    date: 2017-01-18 16:04:38
+(epstopdf)                    size: 6263 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig11_random-eps-converted
 -to.pdf fig11_random.eps>
 (epstopdf)             \includegraphics on input line 334.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig11_random-eps-converted-to.pdf, id=342, 421.575pt x 316.18124pt>
+<fig11_random-eps-converted-to.pdf, id=346, 421.575pt x 316.18124pt>
 File: fig11_random-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig11_random-eps-converted-to.pdf>
@@ -1449,17 +1449,17 @@ Package pdftex.def Info: fig11_random-eps-converted-to.pdf used on input line 3
 34.
 (pdftex.def)             Requested size: 100.65746pt x 75.48943pt.
 Package epstopdf Info: Source file: <fig11_user.eps>
-(epstopdf)                    date: 2017-01-18 13:42:27
-(epstopdf)                    size: 15135 bytes
+(epstopdf)                    date: 2017-01-18 15:08:21
+(epstopdf)                    size: 15162 bytes
 (epstopdf)             Output file: <fig11_user-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-01-18 14:00:42
-(epstopdf)                    size: 6624 bytes
+(epstopdf)                    date: 2017-01-18 16:04:38
+(epstopdf)                    size: 6678 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig11_user-eps-converted-t
 o.pdf fig11_user.eps>
 (epstopdf)             \includegraphics on input line 337.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig11_user-eps-converted-to.pdf, id=343, 421.575pt x 316.18124pt>
+<fig11_user-eps-converted-to.pdf, id=347, 421.575pt x 316.18124pt>
 File: fig11_user-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig11_user-eps-converted-to.pdf>
@@ -1477,7 +1477,7 @@ o.pdf fig12_Base.eps>
 (epstopdf)             \includegraphics on input line 356.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig12_Base-eps-converted-to.pdf, id=344, 492.84125pt x 463.7325pt>
+<fig12_Base-eps-converted-to.pdf, id=348, 492.84125pt x 463.7325pt>
 File: fig12_Base-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig12_Base-eps-converted-to.pdf>
@@ -1495,7 +1495,7 @@ Package epstopdf Info: Source file: <fig12_CPC.eps>
 (epstopdf)             \includegraphics on input line 358.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig12_CPC-eps-converted-to.pdf, id=345, 602.25pt x 457.71pt>
+<fig12_CPC-eps-converted-to.pdf, id=349, 602.25pt x 457.71pt>
 File: fig12_CPC-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig12_CPC-eps-converted-to.pdf>
@@ -1513,7 +1513,7 @@ Package epstopdf Info: Source file: <fig12_CPP.eps>
 (epstopdf)             \includegraphics on input line 360.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig12_CPP-eps-converted-to.pdf, id=346, 523.9575pt x 520.94624pt>
+<fig12_CPP-eps-converted-to.pdf, id=350, 523.9575pt x 520.94624pt>
 File: fig12_CPP-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig12_CPP-eps-converted-to.pdf>
@@ -1531,7 +1531,7 @@ Package epstopdf Info: Source file: <fig12_CPV.eps>
 (epstopdf)             \includegraphics on input line 361.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig12_CPV-eps-converted-to.pdf, id=347, 582.175pt x 506.89375pt>
+<fig12_CPV-eps-converted-to.pdf, id=351, 582.175pt x 506.89375pt>
 File: fig12_CPV-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig12_CPV-eps-converted-to.pdf>
@@ -1541,21 +1541,25 @@ Package pdftex.def Info: fig12_CPV-eps-converted-to.pdf used on input line 361.
  [6.6 <./fig10_movielens1M-eps-converted-to.pdf> <./fig10_eachmovie-eps-convert
 ed-to.pdf> <./fig11_movielens1M-eps-converted-to.pdf> <./fig11_eachmovie-eps-co
 nverted-to.pdf> <./fig11_random-eps-converted-to.pdf> <./fig11_user-eps-convert
-ed-to.pdf>] [7.7 <./fig12_Base-eps-converted-to.pdf> <./fig12_CPC-eps-converted
--to.pdf> <./fig12_CPP-eps-converted-to.pdf> <./fig12_CPV-eps-converted-to.pdf>]
+ed-to.pdf>]
+Underfull \vbox (badness 6493) has occurred while \output is active []
 
-Overfull \hbox (8.81248pt too wide) in paragraph at lines 502--502
+
+Underfull \vbox (badness 3919) has occurred while \output is active []
+
+ [7.7 <./fig12_Base-eps-converted-to.pdf> <./fig12_CPC-eps-converted-to.pdf> <.
+/fig12_CPP-eps-converted-to.pdf> <./fig12_CPV-eps-converted-to.pdf>]
+Overfull \hbox (8.81248pt too wide) in paragraph at lines 512--512
 [] 
  []
 
 [8.8pdfTeX warning (ext4): destination with the same identifier (name{equation.
-4.13}) has been already used, duplicate ignored
+4.12}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.527 T
-       he comparative $NDCG$ is conducted on Yahoo!random data set. Evaluati...
-]
+l.528 
+      ]
 Package epstopdf Info: Source file: <fig13_model_NDCG.eps>
 (epstopdf)                    date: 2017-01-14 22:20:23
 (epstopdf)                    size: 15660 bytes
@@ -1566,7 +1570,8 @@ Package epstopdf Info: Source file: <fig13_model_NDCG.eps>
 rted-to.pdf fig13_model_NDCG.eps>
 (epstopdf)             \includegraphics on input line 540.
 Package epstopdf Info: Output file is already uptodate.
- <fig13_model_NDCG-eps-converted-to.pdf, id=529, 1446.40375pt x 725.71124pt>
+
+<fig13_model_NDCG-eps-converted-to.pdf, id=532, 1446.40375pt x 725.71124pt>
 File: fig13_model_NDCG-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig13_model_NDCG-eps-converted-to.pdf>
@@ -1584,7 +1589,7 @@ verted-to.pdf fig13_compare_NDCG.eps>
 (epstopdf)             \includegraphics on input line 543.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig13_compare_NDCG-eps-converted-to.pdf, id=530, 1446.40375pt x 725.71124pt>
+<fig13_compare_NDCG-eps-converted-to.pdf, id=533, 1446.40375pt x 725.71124pt>
 File: fig13_compare_NDCG-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig13_compare_NDCG-eps-converted-to.pdf>
@@ -1602,7 +1607,7 @@ Package epstopdf Info: Source file: <fig14_tau.eps>
 (epstopdf)             \includegraphics on input line 555.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig14_tau-eps-converted-to.pdf, id=532, 421.575pt x 317.185pt>
+<fig14_tau-eps-converted-to.pdf, id=535, 421.575pt x 317.185pt>
 File: fig14_tau-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig14_tau-eps-converted-to.pdf>
@@ -1620,53 +1625,77 @@ df fig14_K.eps>
 (epstopdf)             \includegraphics on input line 557.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig14_K-eps-converted-to.pdf, id=533, 421.575pt x 317.185pt>
+<fig14_K-eps-converted-to.pdf, id=536, 421.575pt x 317.185pt>
 File: fig14_K-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig14_K-eps-converted-to.pdf>
 Package pdftex.def Info: fig14_K-eps-converted-to.pdf used on input line 557.
 (pdftex.def)             Requested size: 150.99002pt x 113.60088pt.
 Package epstopdf Info: Source file: <fig14_C.eps>
-(epstopdf)                    date: 2017-01-18 15:06:52
+(epstopdf)                    date: 2017-01-18 15:32:42
 (epstopdf)                    size: 8617 bytes
 (epstopdf)             Output file: <fig14_C-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-01-18 15:22:28
+(epstopdf)                    date: 2017-01-18 15:32:42
 (epstopdf)                    size: 6245 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig14_C-eps-converted-to.p
 df fig14_C.eps>
 (epstopdf)             \includegraphics on input line 559.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig14_C-eps-converted-to.pdf, id=534, 421.575pt x 317.185pt>
+<fig14_C-eps-converted-to.pdf, id=537, 421.575pt x 317.185pt>
 File: fig14_C-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fig14_C-eps-converted-to.pdf>
 Package pdftex.def Info: fig14_C-eps-converted-to.pdf used on input line 559.
 (pdftex.def)             Requested size: 150.99002pt x 113.60088pt.
 
+
+Package caption Warning: \label without proper reference on input line 569.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:umean' on page 9 undefined on input line 565.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+Package epstopdf Info: Source file: <fig15_umean.eps>
+(epstopdf)                    date: 2017-01-18 15:49:24
+(epstopdf)                    size: 11719 bytes
+(epstopdf)             Output file: <fig15_umean-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-01-18 15:51:40
+(epstopdf)                    size: 6993 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig15_umean-eps-converted-
+to.pdf fig15_umean.eps>
+(epstopdf)             \includegraphics on input line 569.
+Package epstopdf Info: Output file is already uptodate.
+
+<fig15_umean-eps-converted-to.pdf, id=540, 1446.40375pt x 725.71124pt>
+File: fig15_umean-eps-converted-to.pdf Graphic file (type pdf)
+
+<use fig15_umean-eps-converted-to.pdf>
+Package pdftex.def Info: fig15_umean-eps-converted-to.pdf used on input line 56
+9.
+(pdftex.def)             Requested size: 226.4812pt x 113.62463pt.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/sb/n' will be
-(Font)              scaled to size 9.0pt on input line 574.
+(Font)              scaled to size 9.0pt on input line 588.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/sb/n' will be
-(Font)              scaled to size 7.3pt on input line 574.
+(Font)              scaled to size 7.3pt on input line 588.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/sb/n' will be
-(Font)              scaled to size 5.5pt on input line 574.
+(Font)              scaled to size 5.5pt on input line 588.
+ [9.9]
 Missing character: There is no é in font LinLibertineT-tlf-ot1!
 Missing character: There is no ¥ in font LinLibertineT-tlf-ot1!
- [9.9]
-[10.10
-
- <./fig13_model_NDCG-eps-converted-to.pdf> <./fig13_compare_NDCG-eps-converted-
-to.pdf> <./fig14_tau-eps-converted-to.pdf> <./fig14_K-eps-converted-to.pdf> <./
-fig14_C-eps-converted-to.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 727.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 727.
+ [10.10 <./fig13_model_NDCG-eps-converted-to.pdf> <./fig13_compare_NDCG-eps-con
+verted-to.pdf> <./fig14_tau-eps-converted-to.pdf> <./fig14_K-eps-converted-to.p
+df> <./fig14_C-eps-converted-to.pdf> <./fig15_umean-eps-converted-to.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 741.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 741.
  (./LaTeX1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 727.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 727.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 741.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 741.
 Package rerunfilecheck Info: File `LaTeX1.out' has not changed.
-(rerunfilecheck)             Checksum: 9060585BCB2882343BC95D0D7476D933;1035.
+(rerunfilecheck)             Checksum: 68BF175EE711118BAA223C006071339A;1110.
 
 
 LaTeX Warning: There were undefined references.
@@ -1674,18 +1703,18 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 727.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 741.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 15022 strings out of 493014
- 238457 string characters out of 6133351
- 385156 words of memory out of 5000000
- 17714 multiletter control sequences out of 15000+600000
- 97174 words of font info for 313 fonts, out of 8000000 for 9000
+ 15028 strings out of 493014
+ 238592 string characters out of 6133351
+ 386504 words of memory out of 5000000
+ 17721 multiletter control sequences out of 15000+600000
+ 96797 words of font info for 311 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  60i,16n,94p,1908b,2863s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/libertine/l
@@ -1712,10 +1741,10 @@ ive/2016/texmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/local/texlive/201
 6/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/local/texlive/2016/texmf
 -dist/fonts/type1/public/newtx/zxlr.pfb></usr/local/texlive/2016/texmf-dist/fon
 ts/type1/public/newtx/zxlri.pfb>
-Output written on LaTeX1.pdf (10 pages, 1064278 bytes).
+Output written on LaTeX1.pdf (10 pages, 1072125 bytes).
 PDF statistics:
- 678 PDF objects out of 1000 (max. 8388607)
- 541 compressed objects within 6 object streams
- 121 named destinations out of 1000 (max. 500000)
- 27451 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 690 PDF objects out of 1000 (max. 8388607)
+ 551 compressed objects within 6 object streams
+ 122 named destinations out of 1000 (max. 500000)
+ 27464 words of extra memory for PDF output out of 29859 (max. 10000000)
 
