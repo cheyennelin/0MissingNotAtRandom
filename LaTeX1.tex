@@ -1,4 +1,6 @@
-\documentclass{sig-alternate}
+\documentclass[sigconf]{acmart}
+
+\usepackage{booktabs} 
 
 \usepackage{amsmath}
 \usepackage[linesnumbered,boxed]{algorithm2e}
@@ -20,13 +22,11 @@
 
 
 
-\makeatletter
-\def\@copyrightspace{\relax}
-\makeatother
+\setcopyright{none}
 
 \begin{document}
 \title{The Spiral of Silence and Its Application in Recommender System}
-\numberofauthors{1}
+%\numberofauthors{1}
 \author{Paper 118}
 
 %\numberofauthors{2}
@@ -46,19 +46,20 @@
 %\affaddr{Burnaby, BC, Canada, V5A 1S6}\\
 %\email{jpei@cs.sfu.ca}
 %}
-\maketitle
+%\maketitle
 \begin{abstract}
 Are people in recommender systems less willing to speak out if they perceive they are in the minority? We testify the famous ``spiral of silence'' theory in real recommender systems. We find that not only minority opinion holders incline to remain silent, but also the incline is enlarged if the opinion climate gets stronger. Furthermore, we discover that (1) For niche items, people are less likely to express negative opinions and more likely to give positive responses. The tendency is weakened for popular items, thus resulting in a spiral process where the average rating for each item firstly increases given more ratings received, slightly decreases after a certain time point, and finally converges. (2) People assess the ``opinion climate'' in a ``quasi-statistical '' sense, which is highly affected by how they identify themselves to different communities and the opinion leaders. (3) A hardcore group of people, who are more active to reveal minority opinions, exists in every recommender system. Hardcore users are more prone to  rate in extreme values. (4) People are more willing to demonstrate dissents for popular items and items that they are not interested on. People feel more obligated to praise a criticized item than the opposite, to criticize an appreciated item.  The phenomenon of silent minority harms the performance of conventional recommender systems. We propose novel models which assume that the probability a user willing to express opinion is dependent on the rating and how the rating divergent to the perceived opinion climate. Furthermore, we utilize our empirical discoveries to guide the building of recommender models. We model the formation of community, opinion leaders, hardcore personality and item popularity to enhance recommendation performance.  Experimental results demonstrate that our models  outperform state-of-the-art recommendation models.
 \end{abstract}
 
 % A category with the (minimum) three required fields
-\category{H.4}{Information Systems Applications}{Miscellaneous}
+%\category{H.4}{Information Systems Applications}{Miscellaneous}
 
 
-\terms{Algorithms,Verification}
+%\terms{Algorithms,Verification}
 
 \keywords{Spiral of Silence, Missing not at Random, Recommender System}
 
+\maketitle
 \section{Introduction}\label{sec:introduction}
 %The theory
 
