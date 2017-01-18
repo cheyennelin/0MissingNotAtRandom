@@ -10,6 +10,13 @@
 \usepackage{colortbl}
 \definecolor{mygray}{gray}{.4}
 
+\newenvironment{shrinkeq}[1]
+{ \bgroup
+  \addtolength\abovedisplayshortskip{#1}
+  \addtolength\abovedisplayskip{#1}
+  \addtolength\belowdisplayshortskip{#1}
+  \addtolength\belowdisplayskip{#1}}
+{\egroup\ignorespacesafterend}
 
 
 
@@ -94,7 +101,7 @@ In the nutshell, our models fall into the MNAR framework. However, for the best 
 We also utilize the findings in our empirical study to build variant models. We incorporate hidden community, hardcore persona and item specific factors into the model. The comparative performances of model variants support the discoveries about the impact of social identity, hardcore groups and silent strategy on self definition of minority. We believe our study sheds insights into bridging social science and computer engineering.
 
 %paper structure
-The paper is organized as follows. In Sec~\ref{sec:related} we briefly introduce the related works. In Sec~\ref{sec:empirical} we present our empirical study on several real data sets. In Sec~\ref{sec:model} we propose several model variants, based on the findings in Sec.~\ref{sec:empirical}. In Sec.~\ref{sec:experiment} we demonstrate and analyze comparative performances of the models. Finally, in Sec.~\ref{conclusion} we conclude our contribution and look into the future work.
+The paper is organized as follows. In Sec~\ref{sec:related} we briefly introduce the related works. In Sec~\ref{sec:empirical} we present our empirical study on several real data sets. In Sec~\ref{sec:model} we propose several model variants, based on the findings in Sec.~\ref{sec:empirical}. In Sec.~\ref{sec:experiment} we demonstrate and analyze comparative performances of the models. Finally, in Sec.~\ref{sec:conclusion} we conclude our contribution and look into the future work.
 
 
 \section{Related Work}\label{sec:related}
@@ -410,10 +417,10 @@ Generate $C$ communities. For each community, $U_c$ is generated from a zero-mea
 U_i \sim \Pi_c \mathcal{N}(U_c,\sigma_u^2)^{\gamma_{i,c}}
 \end{equation}
 
-In the \textit{response generation stage}, we replace the opinion climate in Equ.\ref{equ:ebase} by a community specific opinion climate. 
+Suppose $OR_j$ represents the observed ratings, $OR_{i,j}=R_{i,j}X_{i,j}$, in the \textit{response generation stage}, we replace the opinion climate in Equ.\ref{equ:ebase} by a community specific opinion climate.  
 
 \begin{equation}\label{equ:ecommunity}
- E_{c,j}=\frac{\Sigma_j\gamma_{i,c} R_{i,j}X_{i,j}}{\Sigma_j \gamma_{i,c} X_{i,j}}
+ E_{c,j}=\frac{\Sigma_j\gamma_{i,c} OR_{i,j}}{\Sigma_j \gamma_{i,c} X_{i,j}}
 \end{equation}
 
 \subsection{Model CPP}
@@ -451,14 +458,16 @@ P(x_{i,j}|r_{i,j},E_{j},\tau)=\frac{1}{1+\exp{(-\tau(r_{i,j}-E_{j}-VP_{i,j}))}}
 
 We apply EM algorithms to infer the model parameters. The update equations in the four models share a similar form. For computational convenience, we first obtain $B_{i,j,c}$ and $p_{i,j,c}$ for each user, item and community at an iteration. Then we update $U_i$ and $V_j$ as follows.
 
+\begin{shrinkeq}{-2ex}
 \begin{equation}\label{equ:update}
 \begin{split}
 &p_{i,j,c}=U_{i,c}^{T}V_{j} + BU_{i} + BV_{j} \\
 &B_{i,j,c}=(R_{i,j}-p_{i,j,c})^{[X_{i,j}=1]}(-\tau \mathcal{LS}(-\tau(p_{i,j,c}-E_{c,j})))^{[X_{i,j}=0]} \\
 &U_{i,c}\leftarrow U_{i,c}+lr(\hat{\gamma}_{i,c}\sum\limits_{j=1}^{N}B_{i,j,c}V_j-(U_{i,c}-U_c)) \\
-&V_j\leftarrow V_j+lr(\sum\limits_{c=1}^{C}\sum\limits_{i=1}^{M}\hat{\gamma}_{i,c}B_{i,j,c}U_{i,c}-V_j) \\
+&V_j\leftarrow V_j+lr(\sum\limits_{c=1}^{C}\sum\limits_{i=1}^{M}\hat{\gamma}_{i,c}B_{i,j,c}U_{i,c}-V_j) 
 \end{split}
 \end{equation}
+\end{shrinkeq}
 
 where $\mathcal{LS}(x)=\frac{1}{1+\exp(-x)}$ is a logistic function, $lr$ is the learning rate. For model Base and COL, the c subscript is ignored (i.e. $p_{i,j,c}$ to $p_{i,j}$, $B_{i,j,c}$ to $B_{i,j}$), and set $\hat{\gamma}_{i,c}=1$. 
 
@@ -512,7 +521,7 @@ The major evaluation metric is $NDCG@L$, which is a standard measure for ranking
 \begin{equation}
 NDCG@L=\sum\limits_{i=1}^{M}\frac{\sum_{l=1}^{L}(2^{r_{i}(p(l,i))}-1)/log(1+l)}{M\sum_{l=1}^{L}(2^{r_{i}(t(l,i))}-1)/log(1+l)}
 \end{equation}
-where $p(l,n)$ is the index of the test items sorted in descending order by predicted ratings, $t(l,n)$ is the index of the test items sorted in descending order by true ratings.
+where $p(l,i)$ is the index of the test items sorted in descending order by predicted ratings, $t(l,i)$ is the index of the test items sorted in descending order by true ratings.
 
 The comparative $NDCG$ is conducted on Yahoo!random data set. Evaluating $NDCG@L$ on a non-randomly missing data set, such as Yahoo!random, has been used as the primary criteria in many MNAR researches~\cite{Hernandez-Lobato2014Probabilistic,Marlin2009Collaborative}.
 
@@ -527,17 +536,17 @@ As shown in Fig.~\ref{fig:modelNDCG} and Fig.~\ref{fig:compNDCG}, we can see tha
 \begin{figure*}[!htbp]
 \centering
 \subfigure[Our models]{
-\includegraphics[width=0.8\textwidth]{fig13_model_NDCG.eps}\label{fig:modelNDCG}}
+\includegraphics[width=0.45\textwidth]{fig13_model_NDCG.eps}\label{fig:modelNDCG}}
 \vspace{-1em}
 \subfigure[CPC v.s. state-of-the-art models]{
-\includegraphics[width=0.8\textwidth]{fig13_compare_NDCG.eps}\label{fig:compNDCG}}
+\includegraphics[width=0.45\textwidth]{fig13_compare_NDCG.eps}\label{fig:compNDCG}}
 \caption{comparable experiment NDCG performance at top L items}
 \end{figure*}
 
 
 \subsection{Parameter Tunning}
-We have two important parameters in our models $\tau$ and $K$. In order to see the effects of these parameters, we set $\tau=0.2,0.7,1.2,1.7,2.2$ and $K=5,10,15,20$. The $NDCG@5$ result of model CPC is shown in Fig.~\ref{fig:parameter}. We can conclude that (1) the performance is quite stable. No matter how we set the parameters,  $NDCG@5>0.74$, which is better than all non-ranking based recommender systems. This again demonstrate the superiority of our models.
-(2) The best result is achieved when $\tau=1.7,K=10$. It suggests that the hardcore effect is relative strong as $\tau>1$. \begin{figure}[htbp]
+We have two important parameters in our models $\tau$ and $K$. In order to see the effects of these parameters, we set $\tau=0.2,0.,5,1.0,1.5,2.0$ and $K=5,10,15,20$. The $NDCG@5$ result of model CPC is shown in Fig.~\ref{fig:parameter}. We can conclude that (1) the performance is quite stable. No matter how we set the parameters,  $NDCG@5>0.74$, which is better than all non-ranking based recommender systems. This again demonstrate the superiority of our models.
+(2) The best result is achieved when $\tau=1.5,K=10$. It suggests that the hardcore effect is relative strong as $\tau>1$. \begin{figure}[htbp]
 \centering
 \subfigure[$\tau$]{
 \includegraphics[width=0.2\textwidth]{fig14_tau.eps}}
