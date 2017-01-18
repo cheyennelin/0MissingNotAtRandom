@@ -545,16 +545,20 @@ As shown in Fig.~\ref{fig:modelNDCG} and Fig.~\ref{fig:compNDCG}, we can see tha
 \end{figure*}
 
 
-\subsection{Parameter Tunning}
-We have two important parameters in our models $\tau$ and $K$. In order to see the effects of these parameters, we set $\tau=0.2,0.,5,1.0,1.5,2.0$ and $K=5,10,15,20$. The $NDCG@5$ result of model CPC is shown in Fig.~\ref{fig:parameter}. We can conclude that (1) the performance is quite stable. No matter how we set the parameters,  $NDCG@5>0.74$, which is better than all non-ranking based recommender systems. This again demonstrate the superiority of our models.
-(2) The best result is achieved when $\tau=1.5,K=10$. It suggests that the hardcore effect is relative strong as $\tau>1$. \begin{figure}[htbp]
+\subsection{Parameter Tuning}
+We have three important parameters in the CPC models $\tau$, $K$ and $C$. In order to see the effects of these parameters, we set $\tau=0.2,0.,5,1.0,1.5,2.0$, $K=5,10,15,20$ and $C=1,2,3,4$. The $NDCG@5$ result of model CPC is shown in Fig.~\ref{fig:parameter}. We can conclude that (1) the performance is quite stable. No matter how we set the parameters,  $NDCG@5>0.74$, which is better than all non-ranking based recommender systems. This again demonstrate the superiority of our models.
+(2) The best result is achieved when $\tau=1.5$. It suggests that the hardcore effect is relative strong as $\tau>1$.  (3) $NDCG@5$ results are high for small values of $K,C$. However, when $K$ and $C$ are too large, the performance is harmed due to over-fitting.
+
+\begin{figure*}[htbp]
 \centering
 \subfigure[$\tau$]{
-\includegraphics[width=0.2\textwidth]{fig14_tau.eps}}
+\includegraphics[width=0.3\textwidth]{fig14_tau.eps}}
 \subfigure[$K$]{
-\includegraphics[width=0.2\textwidth]{fig14_K.eps}}
-\caption{NDCG@5 performance over different values of parameters}\label{fig:parameter}
-\end{figure}
+\includegraphics[width=0.3\textwidth]{fig14_K.eps}}
+\subfigure[$C$]{
+\includegraphics[width=0.3\textwidth]{fig14_C.eps}}
+\caption{NDCG@5 performance of CPC over different values of parameters}\label{fig:parameter}
+\end{figure*}
 
 \subsection{AUC Performance}
 Finally, we provide a supplementary experiment on the AUC performance. AUC is the area under recall-precision curve, which is a common measure to evaluate the performance of a binary classifier. We should note that AUC does not reflect how the RS captures MNAR ratings. Therfore, AUC is not the primary measurement for MNAR models. However, as shown in Tab.~\ref{tab:AUC}, our models achive best results in two data sets (Yahoo! and Mtweet) and second best results in the remaining two data sets (Movielens and Eachmovie). Thus our models are comparable to the state-of-the art models in term of AUC evaluation. Furthermore, we observe that CPC and COL are comparable when evaluated by AUC.   The underlying reason is that, COL may not be as good as CPC in predicting the top results. But in the long run, the opinion leaders have strong influence over user behaviors. 
