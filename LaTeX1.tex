@@ -10,7 +10,7 @@
 \usepackage{color}
 \usepackage{multirow}
 \usepackage{colortbl}
-\definecolor{mygray}{gray}{.4}
+\definecolor{pink}{RGB}{240,128,128}
 
 \newenvironment{shrinkeq}[1]
 { \bgroup
@@ -25,30 +25,14 @@
 \setcopyright{none}
 
 \begin{document}
-\title{The Spiral of Silence and Its Application in Recommender System}
-%\numberofauthors{1}
+\title{The Spiral of Silence and Its Application in Recommender Systems}
 \author{Paper 118}
 
-%\numberofauthors{2}
-%\author{
-%\alignauthor
-%Jie Huang, Dugang Liu, Chen Lin\\
-%\affaddr{Department of Computer Science}\\
-%\affaddr{Xiamen University}\\
-%\affaddr{422 Siming South Road}\\
-%\affaddr{Xiamen, Fujian, China, 361005}\\
-%\email{chenlin@xmu.edu.cn}
-%%4th. auther
-%\alignauthor Jian Pei\\
-%\affaddr{School of Computing Science}\\
-%\affaddr{Simon Frasor University}\\
-%\affaddr{8888 University Drive}\\
-%\affaddr{Burnaby, BC, Canada, V5A 1S6}\\
-%\email{jpei@cs.sfu.ca}
-%}
-%\maketitle
+
 \begin{abstract}
-Are people in recommender systems less willing to speak out if they perceive they are in the minority? We verify the famous ``spiral of silence'' theory in real recommender systems. We find that as the opinion climate gets stronger, the minority opinion holders are more incline to remain silent. Furthermore, we observe that (1) in the beginning, people have a tendency to hold back negative opinions and give positive responses. But the tendency is weakened for popular items, thus resulting in a spiral process where the average rating for each item firstly increases given more ratings received, slightly decreases after a certain time point, and finally converges. (2) People assess the ``opinion climate'' , by how people in their communities and the opinion leaders response. (3) A hardcore group of people, who are more active to reveal minority opinions, exists in every recommender system. Hardcore users are more prone to  rate in extreme values. (4) People are more willing to demonstrate dissents for popular items and items that they are not interested on. People feel more obligated to praise a criticized item than the opposite, to criticize an appreciated item.  The phenomenon of silent minority harms the performance of conventional recommender systems. We propose novel models which assume that the probability a user willing to express opinion is dependent on the rating and how the rating divergent to the perceived opinion climate. Furthermore, we utilize our empirical discoveries to guide the building of recommender models. We model the formation of community, opinion leaders, hardcore personality and item popularity to enhance recommendation performance.  Experimental results demonstrate that our models  outperform state-of-the-art recommendation models.
+Are people in recommender systems less willing to speak out if they perceive they are in the minority? We verify the famous ``spiral of silence'' theory in real recommender systems. We study the trend of holding back opinions over time. We discuss the impact of opinion leaders and peer groups on users' perceptions of the opinion climate. We confirm the consistency of hardcore users and that hardcore is related to attitude certainty, personal interest, item popularity and moral basis. The phenomenon of silent minority harms the performance of conventional recommender systems. We propose novel models which assume that the probability a user willing to express opinion is dependent on the rating and how the rating is divergent from the perceived opinion climate. Furthermore, we utilize our empirical discoveries to guide the building of recommender models. We model the formation of community, opinion leaders, hardcore personality and item popularity to enhance recommendation performance.  Experimental results demonstrate that our models  outperform state-of-the-art recommendation models.
+  
+%Are people in recommender systems less willing to speak out if they perceive they are in the minority? We verify the famous ``spiral of silence'' theory in real recommender systems. We find that as the opinion climate gets stronger, the minority opinion holders are more incline to remain silent. Furthermore, we observe that (1) in the beginning, people have a tendency to hold back negative opinions and give positive responses. But the tendency is weakened for popular items, thus resulting in a spiral process where the average rating for each item firstly increases given more ratings received, slightly decreases after a certain time point, and finally converges. (2) People assess the ``opinion climate'' , by how people in their communities and the opinion leaders response. (3) A hardcore group of people, who are more active to reveal minority opinions, exists in every recommender system. Hardcore users are more prone to  rate in extreme values. (4) People are more willing to demonstrate dissents for popular items and items that they are not interested on. People feel more obligated to praise a criticized item than the opposite, to criticize an appreciated item.  The phenomenon of silent minority harms the performance of conventional recommender systems. We propose novel models which assume that the probability a user willing to express opinion is dependent on the rating and how the rating divergent to the perceived opinion climate. Furthermore, we utilize our empirical discoveries to guide the building of recommender models. We model the formation of community, opinion leaders, hardcore personality and item popularity to enhance recommendation performance.  Experimental results demonstrate that our models  outperform state-of-the-art recommendation models.
 \end{abstract}
 
 % A category with the (minimum) three required fields
@@ -69,9 +53,9 @@ In 1974, German political scientist Elisabeth Noelle-Neumann proposed the Spiral
 The theory has been acknowledged as ``one of the most influential recent theories of public opinion formation''~\cite{Kennamer1990Self}. In the literature of mass communication and political science, many studies testify the theory. Typically, they conduct surveys and ask subjects to rate the willingness to speak out (i.e. enter a conversation, vote, donate, etc.) if their opinions are in the minority. However, this type of experiment protocols may be problematic, because the findings are based on hypothetical willingness instead of actual willingness~\cite{Carroll1997Perceived}. The theory in its online form also triggers considerable critiques. Some researchers point out that, within the online context, factors such as anonymity might decrease the fear of isolation and thus empower ``people in the minority to speak up more''~\cite{mcdevitt2003spiral}.
 
 %Contribution: Empirical Study, discoveries
-Our first contribution in this work is to empirically verify the theory in terms of actual willingness to speak out in Recommender Systems (RS). We use several real data sets to analyze response patterns given how the users' opinion diverge from the perceived ``opinion climate''. Our study suggests that, especially in the beginning, negative feedback tend to self-censor,  which triggers an upward spiral of average rating for each item.
+Our first contribution in this work is to empirically verify the theory in terms of actual willingness to speak out in Recommender Systems (RS). We use several real data sets to analyze response patterns, and how these patterns evolve over time, given how the users' opinions diverge from the perceived ``opinion climate''. Our study suggests that, in the beginning, people have a tendency to hold back negative opinions and give positive responses. But the tendency is weakened over time, thus resulting in a spiral process where the average rating for each item firstly increases given more ratings received, slightly decreases after a certain time point, and finally converges. 
 
-We then further examine some key components in the theory. The key components include: (1) The perceptron of ``opinion climate''. The theory asserts that people use their ``quasi-statistical'' sense to assess current majority opinion. Our results reveal that, assessment of ``opinion climate'' might be related to the social group they identify themselves and the opinion leaders. (2) The existence of ``hardcore groups''. The theory presumes that some people are more active while the rest are more reluctant to respond. We empirically verify the existence of a consistent hardcore group. Hardcore users tend to choose more extreme rating values. (3) The strategies to remain silent. The theory presumes that users might choose different strategies to remain silent according to the nature of items. We observe that, item's popularity, personal interest and moral basis have significant impacts on the response patterns. Users are more prone to speak out for popular items, items that are not important to them, and to praise a criticized item than to criticize an appreciated item.
+We then further examine some key components in the theory. The key components include: (1) The perceptron of ``opinion climate''. The theory asserts that people use their ``quasi-statistical'' sense to assess current majority opinion. Our results reveal that, assessment of ``opinion climate'' might be related to the opinion leaders and the ``peer group'' of people with similar interests. (2) The existence of ``hardcore'' users". The theory presumes that some people are more active while the rest are more reluctant to respond. We empirically verify the existence of a consistent hardcore group. Hardcore users tend to choose more extreme rating values. (3) The strategies to remain silent. The theory presumes that users might choose different strategies to remain silent according to the nature of items. We observe that, item's popularity, personal interest and moral basis have significant impacts on the response patterns. Users are more prone to speak out for popular items, items that are not important to them, and to praise a criticized item than to criticize an appreciated item.
 
 
 %Challenge to RS
@@ -84,20 +68,20 @@ The phenomenon of ``silent minority'' will harm the performance of RS. Fig.~\ref
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
 u/v & $v_1$ & $v_2$ & $v_3$ & $v_4$ & $v_5$ \\\hline\hline
- $u_1$ & \color{mygray}2 & 3 & & 3 &  \\\hline
+ $u_1$ & \color{pink}2 & 3 & & 3 &  \\\hline
  $u_2$ & 5 & 3 & &  &2 \\\hline
  $u_3$ & 5 & 3 &5 & 3 & \\\hline
  $u_4$ &  &  &2 & 3 & 4 \\\hline
  $u_5$ & 5 &  &2 &  &  1\\\hline
 \end{tabular}
-\caption{A toy example, ratings in gray are ``hidden'' opinions}\label{fig:example}
+\caption{A toy example, ratings in pink are ``hidden'' opinions}\label{fig:example}
 \end{figure}
 
 %Related Work
-To address the challenge of ``spiral of silence'', one need to model the missing ratings as missing not at random observations(a.k.a. MNAR). In the RS community,  MNAR models explicitly generate user response by user ratings~\cite{Hernandez-Lobato2014Probabilistic,Steck2010Training,Marlin2009Collaborative}. Instead of optimizing $p(R|\Theta)$, which is the likelihood of ratings, MNAR models optimize $p(R,X|\Theta)$, where $X$ is the set of \textit{response} variables indicating whether a rating is missing. Consequently, MNAR models achieve better performance in predicting both ratings and responses.
+To address the challenge of ``spiral of silence'', one needs to model the missing ratings as missing not at random observations(a.k.a. MNAR). In the RS community,  MNAR models explicitly generate user responses by user ratings~\cite{Hernandez-Lobato2014Probabilistic,Steck2010Training,Marlin2009Collaborative}. Instead of optimizing $p(R|\Theta)$, which is the likelihood of ratings, MNAR models optimize $p(R,X|\Theta)$, where $X$ is the set of \textit{response} variables indicating whether a rating is missing. Consequently, MNAR models achieve better performance in predicting both ratings and responses.
 
 %Contribution
-In the nutshell, our models fall into the MNAR framework. However, for the best of our knowledge, we are the first to apply ``spiral of silence'' theory in recommender systems and consider the perception of support as a factor in an MNAR model. we model the possibility of user ``speaking out'' as dependent on users' perception of opinion climate.  Our model adjusts the bias of response probability by connecting the rating values and opinion climate, thus improves the performances of traditional MNAR models, which are solely based on rating values.  In the experiments on real data sets, our model achieves best results ($NDCG@5$ 0.79) compared with other state-of-the-art MNAR models(best $NDCG@5$ 0.7).
+In the nutshell, our models fall in the MNAR framework. However, for the best of our knowledge, we are the first to apply ``spiral of silence'' theory in recommender systems and consider the perception of support as a factor in an MNAR model. We model the possibility of user ``speaking out'' as dependent on users' perception of opinion climate.  Our model adjusts the bias of response probability by connecting the rating values and opinion climate, thus improves the performances of traditional MNAR models, which are solely based on rating values.  In the experiments on real data sets, our model achieves best results ($NDCG@5$ 0.79) compared with other state-of-the-art MNAR models(best $NDCG@5$ 0.7).
 
 We also utilize the findings in our empirical study to build variant models. We incorporate hidden community, hardcore persona and item specific factors into the model. The comparative performances of model variants support the discoveries about the impact of social identity, hardcore groups and silent strategy on self definition of minority. We believe our study sheds insights into bridging social science and computer engineering.
 
@@ -410,7 +394,7 @@ Our empirical discovery suggests a user perceives a filtered opinion climate of 
 %\end{cases}
 %\end{equation}
 
-Intuitively, users in the same community are alike. We assume that the ``common'' preference in community $c$, denoted by $U_c$. Thus as summarized in Fig.~\ref{fig:communitymodel}, the \textit{preprocessing stage} is as follows.
+Intuitively, users in the same community are alike to each other. We assume that the ``common'' preference in community $c$ is denoted by $U_c$. Thus as summarized in Fig.~\ref{fig:communitymodel}, the \textit{preprocessing stage} is as follows.
 
 Generate $C$ communities. For each community, $U_c$ is generated from a zero-mean Gaussian distribution $U_c \sim \mathcal{N}(0,\sigma_u^2)$. Generate a global community distribution $\alpha\sim Dir(\theta), \Sigma_c \alpha_c=1, \forall \alpha_c>0$. For each user, first generate the community indicator $\gamma_i \sim Discrete(\alpha)$, then generate the user preference according to his/her community:
 
@@ -430,7 +414,7 @@ To model the split of users between hardcore and normal groups, the  \textbf{Con
 
 In the \textit{preprocessing stage}, draw a persona distribution from a Beta distribution $\beta \sim \mathcal{B}(\xi), 0<\beta<1$. For each persona, Draw a hardcore coefficient $\tau_z \sim \mathcal{N}(1,\sigma_\tau), z\in \{0,1\}$. For each user, draw a persona from a Bernouli distribution $\pi_i \sim Bern (\beta)$. 
 
-The response probability is dependent on the user's persona $\pi_i$, the hardcore strengths $\tau$ for each persona. In the \textit{response generation stage}, generate the response value $X_{i,j}$ from Equ.\ref{equ:responseCPP}
+The response probability is dependent on the user's persona $\pi_i$ and the hardcore strengths $\tau$ for each persona. In the \textit{response generation stage}, generate the response value $X_{i,j}$ from Equ.\ref{equ:responseCPP}.
 
 \begin{equation}\label{equ:responseCPP}
  P(X_{i,j}=1|R_{i,j},E_j,\pi_i,\tau)=\Pi_z {\frac{1}{1+\exp{(-\tau_z(R_{i,j}-E_j))}}}^{\pi_{i,z}}
@@ -472,7 +456,7 @@ The update equations in the four models share a similar form. For computational 
 
 where $\mathcal{LS}(x)=\frac{1}{1+\exp(-x)}$ is a logistic function, $lr$ is the learning rate. For model Base and COL, the c subscript is ignored (i.e. $p_{i,j,c}$ to $p_{i,j}$, $B_{i,j,c}$ to $B_{i,j}$), and set $\hat{\gamma}_{i,c}=1$. 
 
-For model CPC and CPP, we apply EM algorithms to infer the model parameters. . in the E-step we need to compute $\omega_{i,j,*}$ for each user, item and community $c$ ($*=z$ for persona in CPP). 
+For model CPC and CPP, we apply EM algorithms to infer the model parameters. In the E-step we need to compute $\omega_{i,j,*}$ for each user, item and community $c$ ($*=z$ for persona in CPP). 
 
 \begin{equation}
 \omega_{i,j,*}=
@@ -513,7 +497,7 @@ For  model CPV,  we ignore the c subscript, set $\hat{\gamma}_{i,c}=1$ and repla
 
 \section{Experiment}\label{sec:experiment}
 
-The data sets used in this section include Yahoo!, movieLen-1M, and eachmovie mentioned above. In addition, we use the Mtweet benchmark with $106,337$ ratings by $3,972$ users on $2,043$ movies crawled from Social Network. In each data set, we remove users whose number of ratings is less than 10, and items which have less than 10 ratings. For each user, we randomly select 5 ratings to construct the test data sets. All ratings are converted to the range of $(1,5)$.
+The data sets used in this section include Yahoo!, MovieLen-1M, and Eachmovie mentioned above. In addition, we use the Mtweet benchmark with $106,337$ ratings by $3,972$ users on $2,043$ movies crawled from social network. In each data set, we remove users whose number of ratings is less than 10, and items which have less than 10 ratings. For each user, we randomly select 5 ratings to construct the test data sets. All ratings are converted to the range of $(1,5)$.
 
 
 \subsection{Comparative Study}
