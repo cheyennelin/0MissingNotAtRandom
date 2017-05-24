@@ -6,14 +6,14 @@
 \BOOKMARK [2][-]{subsection.3.3}{Hardcore Users}{section.3}% 6
 \BOOKMARK [2][-]{subsection.3.4}{Hardcore and Items}{section.3}% 7
 \BOOKMARK [1][-]{section.4}{Model}{}% 8
-\BOOKMARK [2][-]{subsection.4.1}{Model Base and COL}{section.4}% 9
-\BOOKMARK [2][-]{subsection.4.2}{Model CPC}{section.4}% 10
-\BOOKMARK [2][-]{subsection.4.3}{Model CPP}{section.4}% 11
-\BOOKMARK [2][-]{subsection.4.4}{Model CPV}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.1}{Basic Model}{section.4}% 9
+\BOOKMARK [2][-]{subsection.4.2}{Model Conditional Probability on Community}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.3}{Model Conditional Probability on Persona}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.4}{Model Conditional Probability on Popularity Value}{section.4}% 12
 \BOOKMARK [2][-]{subsection.4.5}{Inference}{section.4}% 13
 \BOOKMARK [1][-]{section.5}{Experiment}{}% 14
 \BOOKMARK [2][-]{subsection.5.1}{Comparative Study}{section.5}% 15
 \BOOKMARK [2][-]{subsection.5.2}{Parameter Tuning}{section.5}% 16
 \BOOKMARK [2][-]{subsection.5.3}{Perceived Opinion Climate}{section.5}% 17
-\BOOKMARK [2][-]{subsection.5.4}{AUC Performance}{section.5}% 18
+\BOOKMARK [2][-]{subsection.5.4}{Supplementary Performance}{section.5}% 18
 \BOOKMARK [1][-]{section.6}{Conclusion}{}% 19
